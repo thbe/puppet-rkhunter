@@ -1,0 +1,10 @@
+name 'thbe-rkhunter'
+version '0.1.0'
+
+author 'Thomas Bendler <thomas.bendler@cimt.de>'
+license 'GPL'
+project_page 'https://github.com/puppetlabs/thbe-rkhunter'
+source 'git@github.com:puppetlabs/thbe-rkhunter.git'
+summary 'Rkhunter management module'
+description 'Rkhunter management module'
+dependency 'puppetlabs/stdlib', '>=3.2.0'
