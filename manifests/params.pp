@@ -27,7 +27,7 @@ class rkhunter::params {
       $configRkhunterSysConfUpd = '/etc/sysconfig/rkhunter-propupdate'
       $configRkhunterScriptDirectory = '/etc/rkhunter.d'
       $configRkhunterScript = '/etc/rkhunter.d/checkWhiteList.sh'
-      $configRkhunterScriptTemplate = 'rkhunter/scripts/checkWhiteList.sh'
+      $configRkhunterScriptTemplate = 'rkhunter/scripts/checkWhiteList.sh.erb'
     }
     default  : {
       $linux = false
