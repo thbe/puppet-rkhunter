@@ -2,8 +2,7 @@
 #
 # This is the main configuration file for Rootkit Hunter.
 #
-# Revision:     $Id: rkhunter.conf.erb 916 2013-03-26 16:48:24Z tbendler $
-# Managed:      Puppet <%= puppetversion %> on <%= puppet_server %>
+# Managed:      Puppet <%= scope.lookupvar('::puppetversion') %> on <%= scope.lookupvar('::servername') %>
 #
 # You can either modify this file directly, or you can create a local
 # configuration file. The local file must be named 'rkhunter.conf.local',
@@ -80,7 +79,7 @@ MIRRORS_MODE=0
 # NOTE: This option should be present in the configuration file.
 #
 #MAIL-ON-WARNING=me@mydomain   root@mydomain
-MAIL-ON-WARNING="<%= scope.lookupvar('security::params::rkhunterRootEmail') %>"
+MAIL-ON-WARNING=
 
 #
 # Specify the mail command to use if MAIL-ON-WARNING is set.
@@ -88,7 +87,7 @@ MAIL-ON-WARNING="<%= scope.lookupvar('security::params::rkhunterRootEmail') %>"
 # NOTE: Double quotes are not required around the command, but
 # are required around the subject line if it contains spaces.
 #
-MAIL_CMD=mail -s "[rkhunter] Warnings found for ${HOST_NAME}"
+#MAIL_CMD=mail -s "[rkhunter] Warnings found for ${HOST_NAME}"
 
 #
 # Specify the temporary directory to use.
@@ -115,7 +114,7 @@ SCRIPTDIR=/usr/share/rkhunter/scripts
 #
 # Specify the root directory to use.
 #
-#ROOTDIR=""
+#ROOTDIR=
 
 #
 # This option can be used to modify the command directory list used
@@ -131,8 +130,8 @@ SCRIPTDIR=/usr/share/rkhunter/scripts
 # This is a space-separated list of directory names. The option may
 # be specified more than once.
 #
-#BINDIR="/bin /usr/bin /sbin /usr/sbin"
-#BINDIR="+/usr/local/bin +/usr/local/sbin"
+#BINDIR=/bin /usr/bin /sbin /usr/sbin
+#BINDIR=+/usr/local/bin +/usr/local/sbin
 
 #
 # Specify the default language to use. This should be similar
@@ -155,7 +154,7 @@ SCRIPTDIR=/usr/share/rkhunter/scripts
 # language, specified above, and the English (en) language file will
 # always be updated regardless of this option.
 #
-UPDATE_LANG=""
+UPDATE_LANG=
 
 #
 # Specify the log file pathname.
@@ -261,8 +260,8 @@ ALLOW_SSH_PROT_V1=0
 # Please read the README file for more details about enabling and disabling
 # tests, the test names, and how rkhunter behaves when these options are used.
 #
-ENABLE_TESTS="all"
-DISABLE_TESTS="suspscan hidden_procs deleted_files packet_cap_apps apps"
+ENABLE_TESTS=all
+DISABLE_TESTS=suspscan hidden_procs deleted_files packet_cap_apps apps
 
 #
 # The HASH_FUNC option can be used to specify the command to use
@@ -350,7 +349,7 @@ PKGMGR=RPM
 #
 # Whenever this option is changed 'rkhunter --propupd' must be run.
 #
-#PKGMGR_NO_VRFY=""
+#PKGMGR_NO_VRFY=
 
 #
 # This option can be used to tell rkhunter to ignore any prelink
@@ -368,7 +367,7 @@ PKGMGR=RPM
 # This is a space-separated list of command pathnames. The option can be
 # specified more than once.
 #
-#IGNORE_PRELINK_DEP_ERR="/bin/ps /usr/bin/top"
+#IGNORE_PRELINK_DEP_ERR=/bin/ps /usr/bin/top
 
 #
 # If the 'SOLARIS' package manager is used, then it is possible to use
@@ -409,13 +408,13 @@ PKGMGR=RPM
 # example, it is not possible to exclude the 'ps' command by using
 # '!/bin/ps'. These will be silently ignored from the configuration.
 #
-#USER_FILEPROP_FILES_DIRS="top /usr/local/sbin !/opt/ps*"
-#USER_FILEPROP_FILES_DIRS="/etc/rkhunter.conf"
-#USER_FILEPROP_FILES_DIRS="/etc/rkhunter.conf.local"
-#USER_FILEPROP_FILES_DIRS="/var/lib/rkhunter/db/*"
-#USER_FILEPROP_FILES_DIRS="!/var/lib/rkhunter/db/mirrors.dat"
-#USER_FILEPROP_FILES_DIRS="!/var/lib/rkhunter/db/rkhunter*"
-#USER_FILEPROP_FILES_DIRS="/var/lib/rkhunter/db/i18n/*"
+#USER_FILEPROP_FILES_DIRS=top /usr/local/sbin !/opt/ps*
+#USER_FILEPROP_FILES_DIRS=/etc/rkhunter.conf
+#USER_FILEPROP_FILES_DIRS=/etc/rkhunter.conf.local
+#USER_FILEPROP_FILES_DIRS=/var/lib/rkhunter/db/*
+#USER_FILEPROP_FILES_DIRS=!/var/lib/rkhunter/db/mirrors.dat
+#USER_FILEPROP_FILES_DIRS=!/var/lib/rkhunter/db/rkhunter*
+#USER_FILEPROP_FILES_DIRS=/var/lib/rkhunter/db/i18n/*
 
 #
 # This option whitelists files and directories from existing,
@@ -438,7 +437,7 @@ PKGMGR=RPM
 # has changed. The inode-number and DTM will certainly be different
 # for each new file, and rkhunter will report this.
 #
-#EXISTWHITELIST=""
+#EXISTWHITELIST=
 
 #
 # Whitelist various attributes of the specified files.
@@ -450,7 +449,7 @@ PKGMGR=RPM
 # be specified more than once. The option may use wildcard
 # characters.
 #
-#ATTRWHITELIST="/bin/ps /usr/bin/date"
+#ATTRWHITELIST=/bin/ps /usr/bin/date
 
 #
 # Allow the specified commands to have the 'others'
@@ -463,7 +462,7 @@ PKGMGR=RPM
 # be specified more than once. The option may use wildcard
 # characters.
 #
-#WRITEWHITELIST="/bin/ps /usr/bin/date"
+#WRITEWHITELIST=/bin/ps /usr/bin/date
 
 #
 # Allow the specified commands to be scripts.
@@ -472,8 +471,8 @@ PKGMGR=RPM
 # be specified more than once. The option may use wildcard
 # characters.
 #
-#SCRIPTWHITELIST="/sbin/ifup /sbin/ifdown"
-#SCRIPTWHITELIST="/usr/bin/groups"
+#SCRIPTWHITELIST=/sbin/ifup /sbin/ifdown
+#SCRIPTWHITELIST=/usr/bin/groups
 SCRIPTWHITELIST=/usr/bin/whatis
 SCRIPTWHITELIST=/usr/bin/ldd
 SCRIPTWHITELIST=/usr/bin/groups
@@ -488,7 +487,7 @@ SCRIPTWHITELIST=/sbin/ifdown
 # be specified more than once. The option may use wildcard
 # characters.
 #
-#IMMUTWHITELIST="/sbin/ifup /sbin/ifdown"
+#IMMUTWHITELIST=/sbin/ifup /sbin/ifdown
 
 #
 # If this option is set to 1, then the immutable-bit test is
@@ -503,9 +502,9 @@ IMMUTABLE_SET=0
 # The option may be specified more than once. The option
 # may use wildcard characters.
 #
-ALLOWHIDDENDIR="/etc/.java"
-ALLOWHIDDENDIR="/dev/.mdadm"
-ALLOWHIDDENDIR="/dev/.udev"
+ALLOWHIDDENDIR=/etc/.java
+ALLOWHIDDENDIR=/dev/.mdadm
+ALLOWHIDDENDIR=/dev/.udev
 
 #
 # Allow the specified hidden files to be whitelisted.
@@ -514,42 +513,42 @@ ALLOWHIDDENDIR="/dev/.udev"
 # be specified more than once. The option may use wildcard
 # characters.
 # 
-#ALLOWHIDDENFILE="/etc/.java"
-#ALLOWHIDDENFILE="/usr/share/man/man1/..1.gz"
-#ALLOWHIDDENFILE="/etc/.pwd.lock"
-#ALLOWHIDDENFILE="/etc/.init.state"
-#ALLOWHIDDENFILE="/lib/.libcrypto.so.0.9.8e.hmac /lib/.libcrypto.so.6.hmac"
-#ALLOWHIDDENFILE="/lib/.libssl.so.0.9.8e.hmac /lib/.libssl.so.6.hmac"
-#ALLOWHIDDENFILE="/usr/bin/.fipscheck.hmac"
-#ALLOWHIDDENFILE="/usr/bin/.ssh.hmac"
-#ALLOWHIDDENFILE="/usr/lib/.libfipscheck.so.1.1.0.hmac"
-#ALLOWHIDDENFILE="/usr/lib/.libfipscheck.so.1.hmac"
-#ALLOWHIDDENFILE="/usr/lib/.libgcrypt.so.11.hmac"
-#ALLOWHIDDENFILE="/usr/lib/hmaccalc/sha1hmac.hmac"
-#ALLOWHIDDENFILE="/usr/lib/hmaccalc/sha256hmac.hmac"
-#ALLOWHIDDENFILE="/usr/lib/hmaccalc/sha384hmac.hmac"
-#ALLOWHIDDENFILE="/usr/lib/hmaccalc/sha512hmac.hmac"
-#ALLOWHIDDENFILE="/usr/sbin/.sshd.hmac"
-ALLOWHIDDENFILE="/usr/share/man/man1/..1.gz"
-ALLOWHIDDENFILE="/lib*/.libcrypto.so.*.hmac"
-ALLOWHIDDENFILE="/lib*/.libssl.so.*.hmac"
-ALLOWHIDDENFILE="/usr/bin/.fipscheck.hmac"
-ALLOWHIDDENFILE="/usr/bin/.ssh.hmac"
-ALLOWHIDDENFILE="/usr/bin/.ssh-keygen.hmac"
-ALLOWHIDDENFILE="/usr/bin/.ssh-keyscan.hmac"
-ALLOWHIDDENFILE="/usr/bin/.ssh-add.hmac"
-ALLOWHIDDENFILE="/usr/bin/.ssh-agent.hmac"
-ALLOWHIDDENFILE="/usr/lib*/.libfipscheck.so.*.hmac"
-ALLOWHIDDENFILE="/usr/lib*/.libgcrypt.so.*.hmac"
-ALLOWHIDDENFILE="/usr/lib*/hmaccalc/sha1hmac.hmac"
-ALLOWHIDDENFILE="/usr/lib*/hmaccalc/sha256hmac.hmac"
-ALLOWHIDDENFILE="/usr/lib*/hmaccalc/sha384hmac.hmac"
-ALLOWHIDDENFILE="/usr/lib*/hmaccalc/sha512hmac.hmac"
-ALLOWHIDDENFILE="/usr/sbin/.sshd.hmac"
-ALLOWHIDDENFILE="/usr/share/man/man5/.k5login.5.gz"
-ALLOWHIDDENFILE="/usr/share/man/man5/.k5identity.5.gz"
-ALLOWHIDDENFILE="/usr/sbin/.ipsec.hmac"
-ALLOWHIDDENFILE="/sbin/.cryptsetup.hmac"
+#ALLOWHIDDENFILE=/etc/.java
+#ALLOWHIDDENFILE=/usr/share/man/man1/..1.gz
+#ALLOWHIDDENFILE=/etc/.pwd.lock
+#ALLOWHIDDENFILE=/etc/.init.state
+#ALLOWHIDDENFILE=/lib/.libcrypto.so.0.9.8e.hmac /lib/.libcrypto.so.6.hmac
+#ALLOWHIDDENFILE=/lib/.libssl.so.0.9.8e.hmac /lib/.libssl.so.6.hmac
+#ALLOWHIDDENFILE=/usr/bin/.fipscheck.hmac
+#ALLOWHIDDENFILE=/usr/bin/.ssh.hmac
+#ALLOWHIDDENFILE=/usr/lib/.libfipscheck.so.1.1.0.hmac
+#ALLOWHIDDENFILE=/usr/lib/.libfipscheck.so.1.hmac
+#ALLOWHIDDENFILE=/usr/lib/.libgcrypt.so.11.hmac
+#ALLOWHIDDENFILE=/usr/lib/hmaccalc/sha1hmac.hmac
+#ALLOWHIDDENFILE=/usr/lib/hmaccalc/sha256hmac.hmac
+#ALLOWHIDDENFILE=/usr/lib/hmaccalc/sha384hmac.hmac
+#ALLOWHIDDENFILE=/usr/lib/hmaccalc/sha512hmac.hmac
+#ALLOWHIDDENFILE=/usr/sbin/.sshd.hmac
+ALLOWHIDDENFILE=/usr/share/man/man1/..1.gz
+ALLOWHIDDENFILE=/lib*/.libcrypto.so.*.hmac
+ALLOWHIDDENFILE=/lib*/.libssl.so.*.hmac
+ALLOWHIDDENFILE=/usr/bin/.fipscheck.hmac
+ALLOWHIDDENFILE=/usr/bin/.ssh.hmac
+ALLOWHIDDENFILE=/usr/bin/.ssh-keygen.hmac
+ALLOWHIDDENFILE=/usr/bin/.ssh-keyscan.hmac
+ALLOWHIDDENFILE=/usr/bin/.ssh-add.hmac
+ALLOWHIDDENFILE=/usr/bin/.ssh-agent.hmac
+ALLOWHIDDENFILE=/usr/lib*/.libfipscheck.so.*.hmac
+ALLOWHIDDENFILE=/usr/lib*/.libgcrypt.so.*.hmac
+ALLOWHIDDENFILE=/usr/lib*/hmaccalc/sha1hmac.hmac
+ALLOWHIDDENFILE=/usr/lib*/hmaccalc/sha256hmac.hmac
+ALLOWHIDDENFILE=/usr/lib*/hmaccalc/sha384hmac.hmac
+ALLOWHIDDENFILE=/usr/lib*/hmaccalc/sha512hmac.hmac
+ALLOWHIDDENFILE=/usr/sbin/.sshd.hmac
+ALLOWHIDDENFILE=/usr/share/man/man5/.k5login.5.gz
+ALLOWHIDDENFILE=/usr/share/man/man5/.k5identity.5.gz
+ALLOWHIDDENFILE=/usr/sbin/.ipsec.hmac
+ALLOWHIDDENFILE=/sbin/.cryptsetup.hmac
 
 
 #
@@ -558,14 +557,14 @@ ALLOWHIDDENFILE="/sbin/.cryptsetup.hmac"
 # full pathnames. The process will then only be whitelisted
 # if it is using one of the given files. For example:
 #
-#     ALLOWPROCDELFILE="/usr/libexec/gconfd-2:/tmp/abc:/var/tmp/xyz"
+#     ALLOWPROCDELFILE=/usr/libexec/gconfd-2:/tmp/abc:/var/tmp/xyz
 #
 # This is a space-separated list of process names. The option
 # may be specified more than once.
 #
-#ALLOWPROCDELFILE="/sbin/cardmgr /usr/sbin/gpm:/etc/X11/abc"
-#ALLOWPROCDELFILE="/usr/libexec/gconfd-2"
-#ALLOWPROCDELFILE="/usr/sbin/mysqld"
+#ALLOWPROCDELFILE=/sbin/cardmgr /usr/sbin/gpm:/etc/X11/abc
+#ALLOWPROCDELFILE=/usr/libexec/gconfd-2
+#ALLOWPROCDELFILE=/usr/sbin/mysqld
 
 #
 # Allow the specified processes to listen on any network interface.
@@ -573,10 +572,10 @@ ALLOWHIDDENFILE="/sbin/.cryptsetup.hmac"
 # This is a space-separated list of process names. The option
 # may be specified more than once.
 #
-#ALLOWPROCLISTEN="/sbin/dhclient /usr/bin/dhcpcd"
-#ALLOWPROCLISTEN="/usr/sbin/pppoe /usr/sbin/tcpdump"
-#ALLOWPROCLISTEN="/usr/sbin/snort-plain"
-#ALLOWPROCLISTEN="/usr/local/bin/wpa_supplicant"
+#ALLOWPROCLISTEN=/sbin/dhclient /usr/bin/dhcpcd
+#ALLOWPROCLISTEN=/usr/sbin/pppoe /usr/sbin/tcpdump
+#ALLOWPROCLISTEN=/usr/sbin/snort-plain
+#ALLOWPROCLISTEN=/usr/local/bin/wpa_supplicant
 
 #
 # Allow the specified network interfaces to be in promiscuous mode.
@@ -584,7 +583,7 @@ ALLOWHIDDENFILE="/sbin/.cryptsetup.hmac"
 # This is a space-separated list of interface names. The option may
 # be specified more than once.
 #
-#ALLOWPROMISCIF="eth0"
+#ALLOWPROMISCIF=eth0
 
 #
 # SCAN_MODE_DEV governs how we scan '/dev' for suspicious files.
@@ -613,32 +612,34 @@ PHALANX2_DIRTEST=0
 # be specified more than once. The option may use wildcard
 # characters.
 #
-#ALLOWDEVFILE="/dev/shm/pulse-shm-*"
-#ALLOWDEVFILE="/dev/shm/sem.ADBE_*"
-ALLOWDEVFILE="/dev/shm/pulse-shm-*"
-ALLOWDEVFILE="/dev/shm/sem.*"
-ALLOWDEVFILE="/dev/shm/SDBTech-KSS-SHM-*"
-ALLOWDEVFILE="/dev/md/md-device-map"
-ALLOWDEVFILE="/dev/md/autorebuild.pid"
-ALLOWDEVFILE="/dev/.mdadm.map"
-ALLOWDEVFILE="/dev/.udev/queue.bin"
-ALLOWDEVFILE="/dev/.udev/uevent_seqnum"
-ALLOWDEVFILE="/dev/.udev/rules.d/99-root.rules"
-ALLOWDEVFILE="/dev/.udev/db/net:*"
-ALLOWDEVFILE="/dev/.udev/db/input:*"
-ALLOWDEVFILE="/dev/.udev/db/block:*"
-ALLOWDEVFILE="/dev/.udev/db/block@*"
-ALLOWDEVFILE="/dev/.udev/db/class:*"
-ALLOWDEVFILE="/dev/.udev/db/class@*"
-ALLOWDEVFILE="/dev/.udev/db/usb:*"
-ALLOWDEVFILE="/dev/.udev/db/serio:*"
-ALLOWDEVFILE="/dev/.udev/db/sound:*"
-ALLOWDEVFILE="/dev/.udev/db/drm:*"
-ALLOWDEVFILE="/dev/.static*"
-ALLOWDEVFILE="/dev/.initramfs*"
-ALLOWDEVFILE="/dev/.SRC-unix*"
-ALLOWDEVFILE="/dev/.mdadm*"
-ALLOWDEVFILE="/dev/.systemd*"
+#ALLOWDEVFILE=/dev/shm/pulse-shm-*
+#ALLOWDEVFILE=/dev/shm/sem.ADBE_*
+ALLOWDEVFILE=/dev/shm/pulse-shm-*
+ALLOWDEVFILE=/dev/shm/sem.*
+ALLOWDEVFILE=/dev/shm/SDBTech-KSS-SHM-*
+ALLOWDEVFILE=/dev/shm/ora_XE_*
+ALLOWDEVFILE=/dev/md/md-device-map
+ALLOWDEVFILE=/dev/md/autorebuild.pid
+ALLOWDEVFILE=/dev/.mdadm.map
+ALLOWDEVFILE=/dev/.udev/queue.bin
+ALLOWDEVFILE=/dev/.udev/uevent_seqnum
+ALLOWDEVFILE=/dev/.udev/rules.d/99-root.rules
+ALLOWDEVFILE=/dev/.udev/db/net:*
+ALLOWDEVFILE=/dev/.udev/db/input:*
+ALLOWDEVFILE=/dev/.udev/db/block:*
+ALLOWDEVFILE=/dev/.udev/db/block@*
+ALLOWDEVFILE=/dev/.udev/db/class:*
+ALLOWDEVFILE=/dev/.udev/db/class@*
+ALLOWDEVFILE=/dev/.udev/db/usb:*
+ALLOWDEVFILE=/dev/.udev/db/serio:*
+ALLOWDEVFILE=/dev/.udev/db/sound:*
+ALLOWDEVFILE=/dev/.udev/db/drm:*
+ALLOWDEVFILE=/dev/.udev/db/misc:kvm
+ALLOWDEVFILE=/dev/.static*
+ALLOWDEVFILE=/dev/.initramfs*
+ALLOWDEVFILE=/dev/.SRC-unix*
+ALLOWDEVFILE=/dev/.mdadm*
+ALLOWDEVFILE=/dev/.systemd*
 
 #
 # This setting tells rkhunter where the inetd configuration
@@ -662,7 +663,7 @@ ALLOWDEVFILE="/dev/.systemd*"
 # For example:
 #
 #     INETD_ALLOWED_SVC=imaps
-#     INETD_ALLOWED_SVC="/usr/sbin/rpc.metad /usr/sbin/rpc.metamhd"
+#     INETD_ALLOWED_SVC=/usr/sbin/rpc.metad /usr/sbin/rpc.metamhd
 #
 # For Solaris 10 users the service/FMRI name should be used. For example:
 #
@@ -689,7 +690,6 @@ ALLOWDEVFILE="/dev/.systemd*"
 # be specified more than once.
 #
 #XINETD_ALLOWED_SVC=/etc/xinetd.d/echo
-XINETD_ALLOWED_SVC=/etc/xinetd.d/nrpe
 
 #
 # This option tells rkhunter the local system startup file pathnames.
@@ -701,7 +701,7 @@ XINETD_ALLOWED_SVC=/etc/xinetd.d/nrpe
 # The option may be specified more than once. The option may use
 # wildcard characters.
 #
-#STARTUP_PATHS="/etc/rc.d /etc/rc.local"
+#STARTUP_PATHS=/etc/rc.d /etc/rc.local
 
 #
 # This setting tells rkhunter the pathname to the file containing the
@@ -722,7 +722,7 @@ XINETD_ALLOWED_SVC=/etc/xinetd.d/nrpe
 # NOTE: For *BSD systems you will probably need to use this option
 # for the 'toor' account.
 #
-#UID0_ACCOUNTS="toor rooty"
+#UID0_ACCOUNTS=toor rooty
 
 #
 # Allow the following accounts to have no password. NIS/YP entries do
@@ -731,7 +731,7 @@ XINETD_ALLOWED_SVC=/etc/xinetd.d/nrpe
 # This is a space-separated list of account names. The option may
 # be specified more than once.
 #
-#PWDLESS_ACCOUNTS="abc"
+#PWDLESS_ACCOUNTS=abc
 
 #
 # This setting tells rkhunter the pathname to the syslog configuration
@@ -757,11 +757,11 @@ ALLOW_SYSLOG_REMOTE_LOGGING=1
 # version is to be whitelisted, then the name must be followed by a colon
 # and then the version number. For example:
 #
-#     APP_WHITELIST="openssl:0.9.7d gpg httpd:1.3.29"
+#     APP_WHITELIST=openssl:0.9.7d gpg httpd:1.3.29
 #
 # Note above that for the Apache web server, the name 'httpd' is used.
 #
-#APP_WHITELIST=""
+#APP_WHITELIST=
 
 # 
 # Scan for suspicious files in directories containing temporary files and
@@ -777,8 +777,8 @@ ALLOW_SYSLOG_REMOTE_LOGGING=1
 # This is a space-separated list of directory pathnames.
 # The option may be specified more than once.
 #
-#SUSPSCAN_DIRS="/tmp /var/tmp"
-SUSPSCAN_DIRS="/tmp /var/tmp"
+#SUSPSCAN_DIRS=/tmp /var/tmp
+SUSPSCAN_DIRS=/tmp /var/tmp
 
 #
 # Directory for temporary files. A memory-based one is better (faster).
@@ -820,12 +820,12 @@ SUSPSCAN_THRESH=200
 #
 # For example:
 #
-#     PORT_WHITELIST="/home/user1/abc /opt/xyz TCP:2001 UDP:32011"
+#     PORT_WHITELIST=/home/user1/abc /opt/xyz TCP:2001 UDP:32011
 #
 # NOTE: In order to whitelist a pathname, or use the asterisk option,
 # the 'lsof' command must be present.
 #
-#PORT_WHITELIST=""
+#PORT_WHITELIST=
 
 #
 # The following option can be used to tell rkhunter where the operating
@@ -841,7 +841,7 @@ SUSPSCAN_THRESH=200
 # specified, then RKH will assume the O/S release information is on the
 # first non-blank line of the file.
 #
-#OS_VERSION_FILE="/etc/release"
+#OS_VERSION_FILE=/etc/release
 
 #
 # The following two options can be used to whitelist files and directories
@@ -854,19 +854,19 @@ SUSPSCAN_THRESH=200
 # file name (separated by a colon). This will then only whitelist that string
 # in that file (as part of the malware checks). For example:
 #
-#     RTKT_FILE_WHITELIST="/etc/rc.local:hdparm"
+#     RTKT_FILE_WHITELIST=/etc/rc.local:hdparm
 #
 # If the option list includes the filename on its own as well, then the file
 # will be whitelisted from rootkit checks of the files existence, but still
 # only the specific string within the file will be whitelisted. For example:
 #
-#     RTKT_FILE_WHITELIST="/etc/rc.local:hdparm /etc/rc.local"
+#     RTKT_FILE_WHITELIST=/etc/rc.local:hdparm /etc/rc.local
 #
 # To whitelist a file from the existence checks, but not from the strings
 # checks, then include the filename on its own and on its own but with
 # just a colon appended. For example:
 #
-#     RTKT_FILE_WHITELIST="/etc/rc.local /etc/rc.local:"
+#     RTKT_FILE_WHITELIST=/etc/rc.local /etc/rc.local:
 #
 # NOTE: It is recommended that if you whitelist any files, then you include
 # those files in the file properties check. See the USER_FILEPROP_FILES_DIRS
@@ -875,8 +875,8 @@ SUSPSCAN_THRESH=200
 # These are space-separated lists of file and directory pathnames.
 # The options may be specified more than once.
 #
-#RTKT_DIR_WHITELIST=""
-#RTKT_FILE_WHITELIST=""
+#RTKT_DIR_WHITELIST=
+#RTKT_FILE_WHITELIST=
 
 #
 # The following option can be used to whitelist shared library files that would
@@ -890,7 +890,7 @@ SUSPSCAN_THRESH=200
 # This is a space-separated list of library pathnames.
 # The option may be specified more than once.
 #
-#SHARED_LIB_WHITELIST="/lib/snoopy.so"
+#SHARED_LIB_WHITELIST=/lib/snoopy.so
 
 #
 # To force rkhunter to use the supplied script for the 'stat' or 'readlink'
@@ -914,14 +914,14 @@ SUSPSCAN_THRESH=200
 # A value of 'PERL' may be used to force rkhunter to use the 'perl' command, if
 # it is present.
 #
-#EPOCH_DATE_CMD=""
+#EPOCH_DATE_CMD=
 
 #
 # This setting tells rkhunter the directory containing the available
 # Linux kernel modules. This setting will be worked out by rkhunter,
 # and so should not usually need to be set.
 #
-#MODULES_DIR=""
+#MODULES_DIR=
 
 #
 # The following option can be set to a command which rkhunter will use when
@@ -938,14 +938,14 @@ SUSPSCAN_THRESH=200
 # that rkhunter expects the downloaded file to be written to stdout, and that
 # everything written to stderr is ignored. For example:
 #
-#     WEB_CMD="/opt/bin/dlfile --timeout 5m -q"
+#     WEB_CMD=/opt/bin/dlfile --timeout 5m -q
 #
 # *BSD users may want to use the 'ftp' command, provided that it supports
 # the HTTP protocol:
 #
-#     WEB_CMD="ftp -o -"
+#     WEB_CMD=ftp -o -
 #
-#WEB_CMD=""
+#WEB_CMD=
 
 #
 # Set the following option to 0 if you do not want to receive a warning if
@@ -1022,7 +1022,7 @@ SHOW_LOCK_MSGS=1
 # will only take effect when they are seen. The test names are a space-separated list,
 # and will be executed in the order given.
 #
-#UNHIDE_TESTS="sys"
+#UNHIDE_TESTS=sys
 
 #
 # If both the C 'unhide', and Ruby 'unhide.rb', programs exist on the system, then it
@@ -1035,4 +1035,21 @@ SHOW_LOCK_MSGS=1
 #
 #DISABLE_UNHIDE=0
 
-INSTALLDIR="/usr"
+INSTALLDIR=/usr
+
+# Host specific rules added by Puppet
+<% if scope.lookupvar('::rkhunter::tftp') then %>
+XINETD_ALLOWED_SVC=/etc/xinetd.d/tftp
+<% end %>
+<% if scope.lookupvar('::rkhunter::check_mk') then %>
+XINETD_ALLOWED_SVC=/etc/xinetd.d/check_mk
+<% end %>
+<% if scope.lookupvar('::rkhunter::oracleXE') then %>
+ALLOWDEVFILE=/dev/shm/ora_XE_*
+<% end %>
+<% if scope.lookupvar('::rkhunter::sapDAA') then %>
+PORT_WHITELIST=/usr/sap/DAA/SMDA97/exe/jstart TCP:47107
+<% end %>
+<% if scope.lookupvar('::rkhunter::sapICM') then %>
+PORT_WHITELIST=/usr/sap/*/*/exe/icman TCP:25000
+<% end %>

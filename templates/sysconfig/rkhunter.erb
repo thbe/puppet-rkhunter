@@ -3,13 +3,12 @@
 # System configuration file for Rootkit Hunter which
 # stores RPM system specifics for cron run, etc.
 #
-# Revision:     $Id: rkhunter.erb 713 2012-11-06 13:57:10Z tbendler $
-# Managed:      Puppet <%= puppetversion %> on <%= puppet_server %>
+# Managed:      Puppet <%= scope.lookupvar('::puppetversion') %> on <%= scope.lookupvar('::servername') %>
 #
 #    MAILTO= <email address to send scan report>
 # DIAG_SCAN= no  - perform  normal  report scan
 #            yes - perform detailed report scan
 #                  (includes application check)
 
-MAILTO=<%= scope.lookupvar('security::params::rkhunterRootEmail') %>
+MAILTO=<%= scope.lookupvar('rkhunter::rootEmail') %>
 DIAG_SCAN=no

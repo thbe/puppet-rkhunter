@@ -11,9 +11,35 @@
 # Sample Usage: include rkhunter::params
 #
 class rkhunter::params {
+  # Operating system specific definitions
+  case $::osfamily {
+    'RedHat' : {
+      $linux = true
+
+      # Package definition
+      $packageCommon = 'rkhunter'
+
+      # Config definition
+      $configRkhunterConf = '/etc/rkhunter.conf'
+      $configRkhunterConfTemplate = 'rkhunter/etc/rkhunter.conf.erb'
+      $configRkhunterSysConf = '/etc/sysconfig/rkhunter'
+      $configRkhunterSysConfTemplate = 'rkhunter/sysconfig/rkhunter.erb'
+      $configRkhunterSysConfUpd = '/etc/sysconfig/rkhunter-propupdate'
+      $configRkhunterScriptDirectory = '/etc/rkhunter.d'
+      $configRkhunterScript = '/etc/rkhunter.d/checkWhiteList.sh'
+      $configRkhunterScriptTemplate = 'rkhunter/scripts/checkWhiteList.sh'
+    }
+    default  : {
+      $linux = false
+    }
+  }
+
   # rkhunter definitions
-  $packageCore = 'rkhunter'
+  $rootEmail = 'john.doe@example.com'
+  $logFile = '/var/log/rkhunter/rkhunter.log'
   $tftp = false
   $check_mk = false
-  $icman = false
+  $oracleXE = false
+  $sapDAA = false
+  $sapICM = false
 }
