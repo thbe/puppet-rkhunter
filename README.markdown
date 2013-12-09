@@ -21,9 +21,8 @@ the initial rkhunter database.
 
 ##Module Description
 
-The rkhunter module prelace the standard mail server configuration with a light
-wight sending only server. The behavior is the same as sendmail but without
-the possibility to recieve mails from external systems.
+The rkhunter module provides a security feature that scan the local system for
+rootkit fragments and warn you, if detetcted.
 
 
 ##Setup
@@ -32,12 +31,12 @@ the possibility to recieve mails from external systems.
 
 * rkhunter package.
 * rkhunter configuration file.
-* rkhunter alternative service configuration.
+* rkhunter database.
 
 ###Beginning with rkhunter
 
 include '::rkhunter' is enough to get you up and running if the parameters point to
-proper values.  If you wish to pass in parameters like which servers to use then you
+proper values. If you wish to pass in parameters like which servers to use then you
 can use:
 
 ```puppet
@@ -62,8 +61,8 @@ include '::rkhunter'
 
 ```puppet
 class { '::rkhunter':
-  mailHub => 'mail.example.local',
   rootEmail => 'john.doe@example.local',
+  tftp => true,
 }
 ```
 
@@ -75,27 +74,35 @@ class { '::rkhunter':
 * rkhunter: Main class, includes all the rest.
 * rkhunter::install: Handles the packages.
 * rkhunter::config: Handles the configuration file.
-* rkhunter::service: Handles the alternative service link.
+* rkhunter::service: Handles the database rebuild.
 
 ###Parameters
 
 The following parameters are available in the rkhunter module
 
-####`defaultMta`
-
-Replace the default MTA with rkhunter if set to rkhunter.
-
 ####`rootEmail`
 
-Specify which Email address should recieve all mails from root.
+Set the root email adress that get notifications if events occur.
 
-####`mailHub`
+####`tftp`
 
-Define the mail server which should deliver all mails.
+Ignore check errors forced by tftp.
 
-####`revaliases`
+####`check_mk`
 
-Array to define the reverse aliases.
+Ignore check errors forced by check_mk.
+
+####`oracleXE`
+
+Ignore check errors forced by Oracle XE.
+
+####`sapDAA`
+
+Ignore check errors forced by SAP DAA.
+
+####`sapICM`
+
+Ignore check errors forced by SAP ICM.
 
 
 ##Limitations
