@@ -41,7 +41,7 @@
 #
 # === Copyright
 #
-# Copyright 2013 Thomas Bendler
+# Copyright 2014 Thomas Bendler
 #
 class rkhunter (
   $rootEmail = $rkhunter::params::rootEmail,
@@ -49,15 +49,17 @@ class rkhunter (
   $check_mk  = $rkhunter::params::check_mk,
   $oracleXE  = $rkhunter::params::oracleXE,
   $sapDAA    = $rkhunter::params::sapDAA,
-  $sapICM    = $rkhunter::params::sapICM
-) inherits rkhunter::params {
+  $sapICM    = $rkhunter::params::sapICM) inherits rkhunter::params {
+  # Require class yum to have the relevant repositories in place
+  require yum
+
   # Start workflow
   if $rkhunter::params::linux {
     # Containment
     contain rkhunter::package
     contain rkhunter::config
     contain rkhunter::service
-    
+
     Class['rkhunter::package'] ->
     Class['rkhunter::config'] ->
     Class['rkhunter::service']
