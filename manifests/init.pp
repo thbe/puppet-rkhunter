@@ -51,15 +51,15 @@ class rkhunter (
   $sapDAA    = $rkhunter::params::sapDAA,
   $sapICM    = $rkhunter::params::sapICM
 ) inherits rkhunter::params {
-  # Include Puppetlabs standard library
-  include stdlib
-
   # Start workflow
   if $rkhunter::params::linux {
-    anchor { 'rkhunter::start': }
-    -> class { 'rkhunter::package': }
-    ~> class { 'rkhunter::config': }
-    ~> class { 'rkhunter::service': }
-    ~> anchor { 'rkhunter::end': }
+    # Containment
+    contain rkhunter::package
+    contain rkhunter::config
+    contain rkhunter::service
+    
+    Class['rkhunter::package'] ->
+    Class['rkhunter::config'] ->
+    Class['rkhunter::service']
   }
 }
