@@ -1,5 +1,5 @@
 name 'thbe-rkhunter'
-version '0.1.1'
+version '0.1.2'
 
 author 'Thomas Bendler <project@bendler-net.de>'
 license 'GPLv3'
