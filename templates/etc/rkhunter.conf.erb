@@ -92,7 +92,7 @@
 #
 # If the mirrors file is read-only, then the '--versioncheck' command-line
 # option can only be used if this option is set to '0'.
-# 
+#
 # The default value is '1'.
 #
 #ROTATE_MIRRORS=1
@@ -646,7 +646,7 @@ ALLOWHIDDENDIR=/etc/.bzr
 # This option may be specified more than once, and may use wildcard characters.
 #
 # The default value is the null string.
-# 
+#
 #ALLOWHIDDENFILE=/usr/share/man/man1/..1.gz
 ALLOWHIDDENFILE=/usr/share/man/man1/..1.gz
 #ALLOWHIDDENFILE=/usr/bin/.fipscheck.hmac
@@ -909,7 +909,7 @@ ALLOWDEVFILE="/dev/md/autorebuild.pid"
 #
 #APP_WHITELIST=""
 
-# 
+#
 # Set this option to scan for suspicious files in directories which pose a
 # relatively higher risk due to user write access.
 #
@@ -920,7 +920,7 @@ ALLOWDEVFILE="/dev/md/autorebuild.pid"
 #
 # Please consider adding all directories the user the (web)server runs as,
 # and has write access to, including the document root (e.g: '/var/www') and
-# log directories (e.g: '/var/log/httpd'). 
+# log directories (e.g: '/var/log/httpd').
 #
 # This is a space-separated list of directory pathnames. The option may be
 # specified more than once.
@@ -959,7 +959,7 @@ SUSPSCAN_DIRS=/tmp /var/tmp
 
 #
 # The following options can be used to whitelist network ports which are known
-# to have been used by malware. 
+# to have been used by malware.
 #
 # The PORT_WHITELIST option is a space-separated list of one or more of two
 # types of whitelisting. These are:
@@ -1209,10 +1209,10 @@ SUSPSCAN_DIRS=/tmp /var/tmp
 #
 # You should only activate this feature as part of a more thorough
 # investigation, which should be based on relevant best practices and
-# procedures. 
+# procedures.
 #
 # Enabling this feature implies you have the knowledge to interpret the
-# results properly. 
+# results properly.
 #
 # The default value is the null string.
 #
@@ -1311,8 +1311,68 @@ XINETD_ALLOWED_SVC=/etc/xinetd.d/check_mk
 ALLOWDEVFILE=/dev/shm/ora_XE_*
 <% end %>
 <% if scope.lookupvar('::rkhunter::sapDAA') then %>
-PORT_WHITELIST=/usr/sap/DAA/SMDA97/exe/jstart TCP:47107
+PORT_PATH_WHITELIST=/usr/sap/DAA/SMDA97/exe/jstart:TCP:47107
 <% end %>
 <% if scope.lookupvar('::rkhunter::sapICM') then %>
-PORT_WHITELIST=/usr/sap/*/*/exe/icman TCP:25000
+PORT_PATH_WHITELIST=/usr/sap/*/*/exe/icman:TCP:25000
 <% end %>
+
+# Legacy settings
+#SCRIPTWHITELIST=/usr/bin/whatis
+#SCRIPTWHITELIST=/usr/bin/ldd
+#SCRIPTWHITELIST=/usr/bin/groups
+#SCRIPTWHITELIST=/usr/bin/GET
+#SCRIPTWHITELIST=/sbin/ifup
+#SCRIPTWHITELIST=/sbin/ifdown
+
+#ALLOWHIDDENDIR=/etc/.java
+#ALLOWHIDDENDIR=/dev/.mdadm
+#ALLOWHIDDENDIR=/dev/.udev
+
+#ALLOWHIDDENFILE=/usr/share/man/man1/..1.gz
+#ALLOWHIDDENFILE=/lib*/.libcrypto.so.*.hmac
+#ALLOWHIDDENFILE=/lib*/.libssl.so.*.hmac
+#ALLOWHIDDENFILE=/usr/bin/.fipscheck.hmac
+#ALLOWHIDDENFILE=/usr/bin/.ssh.hmac
+#ALLOWHIDDENFILE=/usr/bin/.ssh-keygen.hmac
+#ALLOWHIDDENFILE=/usr/bin/.ssh-keyscan.hmac
+#ALLOWHIDDENFILE=/usr/bin/.ssh-add.hmac
+#ALLOWHIDDENFILE=/usr/bin/.ssh-agent.hmac
+#ALLOWHIDDENFILE=/usr/lib*/.libfipscheck.so.*.hmac
+#ALLOWHIDDENFILE=/usr/lib*/.libgcrypt.so.*.hmac
+#ALLOWHIDDENFILE=/usr/lib*/hmaccalc/sha1hmac.hmac
+#ALLOWHIDDENFILE=/usr/lib*/hmaccalc/sha256hmac.hmac
+#ALLOWHIDDENFILE=/usr/lib*/hmaccalc/sha384hmac.hmac
+#ALLOWHIDDENFILE=/usr/lib*/hmaccalc/sha512hmac.hmac
+#ALLOWHIDDENFILE=/usr/sbin/.sshd.hmac
+#ALLOWHIDDENFILE=/usr/share/man/man5/.k5login.5.gz
+#ALLOWHIDDENFILE=/usr/share/man/man5/.k5identity.5.gz
+#ALLOWHIDDENFILE=/usr/sbin/.ipsec.hmac
+#ALLOWHIDDENFILE=/sbin/.cryptsetup.hmac
+
+#ALLOWDEVFILE=/dev/shm/pulse-shm-*
+#ALLOWDEVFILE=/dev/shm/sem.*
+#ALLOWDEVFILE=/dev/shm/SDBTech-KSS-SHM-*
+#ALLOWDEVFILE=/dev/shm/ora_XE_*
+#ALLOWDEVFILE=/dev/md/md-device-map
+#ALLOWDEVFILE=/dev/md/autorebuild.pid
+#ALLOWDEVFILE=/dev/.mdadm.map
+#ALLOWDEVFILE=/dev/.udev/queue.bin
+ALLOWDEVFILE=/dev/.udev/uevent_seqnum
+#ALLOWDEVFILE=/dev/.udev/rules.d/99-root.rules
+#ALLOWDEVFILE=/dev/.udev/db/net:*
+#ALLOWDEVFILE=/dev/.udev/db/input:*
+#ALLOWDEVFILE=/dev/.udev/db/block:*
+#ALLOWDEVFILE=/dev/.udev/db/block@*
+#ALLOWDEVFILE=/dev/.udev/db/class:*
+#ALLOWDEVFILE=/dev/.udev/db/class@*
+#ALLOWDEVFILE=/dev/.udev/db/usb:*
+#ALLOWDEVFILE=/dev/.udev/db/serio:*
+#ALLOWDEVFILE=/dev/.udev/db/sound:*
+#ALLOWDEVFILE=/dev/.udev/db/drm:*
+#ALLOWDEVFILE=/dev/.udev/db/misc:kvm
+#ALLOWDEVFILE=/dev/.static*
+#ALLOWDEVFILE=/dev/.initramfs*
+#ALLOWDEVFILE=/dev/.SRC-unix*
+#ALLOWDEVFILE=/dev/.mdadm*
+#ALLOWDEVFILE=/dev/.systemd*

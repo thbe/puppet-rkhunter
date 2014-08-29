@@ -1,5 +1,10 @@
 0.1.0 2013-12-09 thbe <project@bendler-net.de>
-* Added LICENSE and CHANGELOG
+ * Added LICENSE and CHANGELOG
 
 0.1.1 2013-12-09 thbe <project@bendler-net.de>
-* Lower dependency version for puppetlabs/stdlib
+ * Lower dependency version for puppetlabs-stdlib
+
+0.2.0 2014-08-29 thbe <project@bendler-net.de>
+ * Removed dependency puppetlabs-stdlib
+ * Add dependency for thbe-yum
+ * Fixed configuration template issues
