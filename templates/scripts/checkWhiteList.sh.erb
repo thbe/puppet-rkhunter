@@ -2,12 +2,12 @@
 #
 # Check rkhunter log file for possible white list entries
 #
-# Managed:      Puppet <%= scope.lookupvar('::puppetversion') %> on <%= scope.lookupvar('::servername') %>
+# managed by Puppet, local changes will be overwritten
 #
 # Forked from example in http://wiki.ubuntuusers.de/rkhunter
 #
 
-LOG=<%= scope.lookupvar('::rkhunter::params::logFile') %>
+LOG=<%= @logFile %>
 
 cat <<EOF
 6. WHITELISTING EXAMPLES

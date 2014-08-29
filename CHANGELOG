@@ -8,3 +8,6 @@
  * Removed dependency puppetlabs-stdlib
  * Add dependency for thbe-yum
  * Fixed configuration template issues
+
+0.3.0 2014-08-29 thbe <project@bendler-net.de>
+ * Harmonize with forge version

@@ -61,7 +61,7 @@ class rkhunter (
     contain rkhunter::service
 
     Class['rkhunter::package'] ->
-    Class['rkhunter::config'] ->
+    Class['rkhunter::config']  ->
     Class['rkhunter::service']
   }
 }

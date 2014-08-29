@@ -1,7 +1,5 @@
 ### rkhunter.conf
 #
-# This is the main configuration file for Rootkit Hunter.
-#
 # managed by Puppet, local changes will be overwritten
 #
 # This is the main configuration file for Rootkit Hunter.
@@ -1301,19 +1299,19 @@ SUSPSCAN_DIRS=/tmp /var/tmp
 INSTALLDIR="/usr"
 
 # Host specific rules added by Puppet
-<% if scope.lookupvar('::rkhunter::tftp') then %>
+<% if @tftp then %>
 XINETD_ALLOWED_SVC=/etc/xinetd.d/tftp
 <% end %>
-<% if scope.lookupvar('::rkhunter::check_mk') then %>
+<% if @check_mk then %>
 XINETD_ALLOWED_SVC=/etc/xinetd.d/check_mk
 <% end %>
-<% if scope.lookupvar('::rkhunter::oracleXE') then %>
+<% if @oracleXE then %>
 ALLOWDEVFILE=/dev/shm/ora_XE_*
 <% end %>
-<% if scope.lookupvar('::rkhunter::sapDAA') then %>
+<% if @sapDAA then %>
 PORT_PATH_WHITELIST=/usr/sap/DAA/SMDA97/exe/jstart:TCP:47107
 <% end %>
-<% if scope.lookupvar('::rkhunter::sapICM') then %>
+<% if @sapICM then %>
 PORT_PATH_WHITELIST=/usr/sap/*/*/exe/icman:TCP:25000
 <% end %>
 
