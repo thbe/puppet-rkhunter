@@ -136,6 +136,7 @@
 # Also see the MAIL_CMD option.
 #
 #MAIL-ON-WARNING=me@mydomain   root@mydomain
+MAIL-ON-WARNING=
 
 #
 # This option specifies the mail command to use if MAIL-ON-WARNING is set.
@@ -1314,7 +1315,7 @@ ALLOWDEVFILE=/dev/shm/ora_XE_*
 PORT_PATH_WHITELIST=/usr/sap/DAA/SMDA97/exe/jstart:TCP:47107
 <% end %>
 <% if scope.lookupvar('::rkhunter::sapICM') then %>
-PORT_PATH_WHITELIST=/usr/sap/*/*/exe/icman:TCP:25000
+PORT_WHITELIST=TCP:25000
 <% end %>
 
 # Legacy settings
