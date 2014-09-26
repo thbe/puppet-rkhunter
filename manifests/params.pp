@@ -42,4 +42,5 @@ class rkhunter::params {
   $oracleXE = false
   $sapDAA = false
   $sapICM = false
+  $disable_tests = ['suspscan', 'hidden_procs', 'deleted_files', 'packet_cap_apps', 'apps']
 }
