@@ -121,3 +121,7 @@ Testing on other platforms has been light and cannot be guaranteed.
 
 If you like to add or improve this module, feel free to fork the module and send
 me a merge request with the modification.
+
+###Contributors
+
+The list of contributors can be found at: [https://github.com/thbe/puppet-rkhunter/graphs/contributors](https://github.com/thbe/puppet-rkhunter/graphs/contributors)

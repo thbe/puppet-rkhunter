@@ -14,3 +14,6 @@
 
 0.3.1 2014-08-29 thbe <project@bendler-net.de>
  * Bugfix release
+
+0.4.0 2014-09-26 fnerdwq <kontakt@wagit.de>
+ * Add disable_tests parameter
