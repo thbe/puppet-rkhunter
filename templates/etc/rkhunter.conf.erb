@@ -361,7 +361,7 @@ ALLOW_SSH_ROOT_USER=unset
 # program defaults.
 #
 ENABLE_TESTS=ALL
-DISABLE_TESTS=suspscan hidden_procs deleted_files packet_cap_apps apps
+DISABLE_TESTS=<%= @disable_tests.join(' ') %>
 
 #
 # The HASH_CMD option can be used to specify the command to use for the file

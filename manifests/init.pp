@@ -44,12 +44,14 @@
 # Copyright 2014 Thomas Bendler
 #
 class rkhunter (
-  $rootEmail = $rkhunter::params::rootEmail,
-  $tftp      = $rkhunter::params::tftp,
-  $check_mk  = $rkhunter::params::check_mk,
-  $oracleXE  = $rkhunter::params::oracleXE,
-  $sapDAA    = $rkhunter::params::sapDAA,
-  $sapICM    = $rkhunter::params::sapICM) inherits rkhunter::params {
+  $rootEmail     = $rkhunter::params::rootEmail,
+  $tftp          = $rkhunter::params::tftp,
+  $check_mk      = $rkhunter::params::check_mk,
+  $oracleXE      = $rkhunter::params::oracleXE,
+  $sapDAA        = $rkhunter::params::sapDAA,
+  $sapICM        = $rkhunter::params::sapICM,
+  $disable_tests = $rkhunter::params::disable_tests,
+) inherits rkhunter::params {
   # Require class yum to have the relevant repositories in place
   require yum
 

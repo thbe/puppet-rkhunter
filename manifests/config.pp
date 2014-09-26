@@ -11,6 +11,10 @@
 # Sample Usage: include rkhunter::config
 #
 class rkhunter::config {
+
+  # pull exlicitly into scope
+  $disable_tests = $rkhunter::disable_tests
+
   file {
     $rkhunter::params::configRkhunterConf:
       ensure  => present,
