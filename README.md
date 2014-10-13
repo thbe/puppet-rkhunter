@@ -104,6 +104,11 @@ Ignore check errors forced by SAP DAA.
 
 Ignore check errors forced by SAP ICM.
 
+####`sshd_root`
+
+Surpress warning if root login is permit.
+Should be the same as PermitRootLogin in sshd_config
+
 
 ##Limitations
 

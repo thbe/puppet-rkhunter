@@ -27,12 +27,17 @@
 # [*sapICM*]
 #   Ignore check errors forced by SAP ICM
 #
+# [*sshd_root*]
+#   Surpress warning if root login is permit.
+#   Should be the same as PermitRootLogin in sshd_config
+#
 # === Variables
 #
 # === Examples
 #
 #  class { '::rkhunter':
-#    tftp => true
+#    tftp => true,
+#    sshd_root => 'without-password'
 #  }
 #
 # === Authors
@@ -51,6 +56,7 @@ class rkhunter (
   $sapDAA        = $rkhunter::params::sapDAA,
   $sapICM        = $rkhunter::params::sapICM,
   $disable_tests = $rkhunter::params::disable_tests,
+  $sshd_root     = $rkhunter::params::sshd_root,
 ) inherits rkhunter::params {
   # Require class yum to have the relevant repositories in place
   require yum
