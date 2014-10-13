@@ -17,3 +17,7 @@
 
 0.4.0 2014-09-26 fnerdwq <kontakt@wagit.de>
  * Add disable_tests parameter
+
+0.4.1 2014-10-13 alet
+ * https://github.com/thbe/puppet-rkhunter/pull/4
+
