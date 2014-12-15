@@ -12,8 +12,8 @@
 #
 class rkhunter::service {
   # rkhunter service configuration
-  exec { "Update rkhunter database":
-    command => '/usr/bin/rkhunter --propupdate && /bin/touch ${::rkhunter::params::configRkhunterSysConfUpd}',
-    onlyif  => '/usr/bin/test ! -e ${::rkhunter::params::configRkhunterSysConfUpd}',
+  exec { 'Update rkhunter database':
+    command => "/usr/bin/rkhunter --propupdate && /bin/touch ${::rkhunter::params::configRkhunterSysConfUpd}",
+    onlyif  => "/usr/bin/test ! -e ${::rkhunter::params::configRkhunterSysConfUpd}",
   }
 }
