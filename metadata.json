@@ -1,39 +1,18 @@
 {
   "name": "thbe-rkhunter",
-  "version": "0.4.1",
-  "author": "Thomas Bendler \u003cproject@bendler-net.de\u003e",
+  "version": "0.4.2",
+  "author": "thbe",
   "summary": "Rkhunter management module",
-  "license": "GPLv3",
+  "license": "GPL-3.0",
   "source": "https://github.com/thbe/puppet-rkhunter.git",
   "project_page": "https://github.com/thbe/puppet-rkhunter",
   "issues_url": "https://github.com/thbe/puppet-rkhunter/issues",
   "operatingsystem_support": [
-    {
-      "operatingsystem": "RedHat",
-      "operatingsystemrelease": [
-        "6.0",
-        "7.0"
-      ]
-    },
-    {
-      "operatingsystem": "CentOS",
-      "operatingsystemrelease": [
-        "6.0",
-        "7.0"
-      ]
-    },
-    {
-      "operatingsystem": "Scientific",
-      "operatingsystemrelease": [
-        "6.0",
-        "7.0"
-      ]
-    }
+    { "operatingsystem": "RedHat", "operatingsystemrelease": [ "6.0", "7.0" ] },
+    { "operatingsystem": "CentOS", "operatingsystemrelease": [ "6.0", "7.0" ] },
+    { "operatingsystem": "Scientific", "operatingsystemrelease": [ "6.0", "7.0" ] }
   ],
   "dependencies": [
-    {
-      "name": "thbe-yum",
-      "version_range": ">= 0.4.1"
-    }
+    { "name": "thbe-yum", "version_range": ">= 0.4.10" }
   ]
 }

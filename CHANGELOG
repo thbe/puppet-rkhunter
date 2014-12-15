@@ -21,3 +21,5 @@
 0.4.1 2014-10-13 alet
  * https://github.com/thbe/puppet-rkhunter/pull/4
 
+0.4.2 2014-12-15 thbe <project@bendler-net.de>
+ * Increase quality score
