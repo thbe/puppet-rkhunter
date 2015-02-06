@@ -27,3 +27,5 @@
 0.4.3 2014-12-15 thbe <project@bendler-net.de>
  * Bugfix version
 
+0.4.4 2015-02-06 thbe <project@bendler-net.de>
+ * Added SAP dev/shm exception
