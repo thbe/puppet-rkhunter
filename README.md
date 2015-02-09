@@ -84,6 +84,9 @@ The following parameters are available in the rkhunter module
 
 Set the root email adress that get notifications if events occur.
 
+####`remoteSyslog`
+Set to true if remote syslog is used
+
 ####`tftp`
 
 Ignore check errors forced by tftp.
@@ -119,7 +122,7 @@ The module has been tested on:
 * RedHat Enterprise Linux 5/6
 * Scientific Linux 5/6
 
-Testing on other platforms has been light and cannot be guaranteed. 
+Testing on other platforms has been light and cannot be guaranteed.
 
 
 ##Development

@@ -29,3 +29,6 @@
 
 0.4.4 2015-02-06 thbe <project@bendler-net.de>
  * Added SAP dev/shm exception
+
+0.4.5 2015-02-09 thbe <project@bendler-net.de>
+ * Added remote syslog switch

@@ -894,6 +894,9 @@ ALLOWDEVFILE="/dev/md/autorebuild.pid"
 # The default value is '0'.
 #
 #ALLOW_SYSLOG_REMOTE_LOGGING=0
+<% if @remoteSyslog then %>
+ALLOW_SYSLOG_REMOTE_LOGGING=1
+<% end %>
 
 #
 # This option allows the specified applications, or a specific version of an

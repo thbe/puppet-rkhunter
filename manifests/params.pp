@@ -37,6 +37,7 @@ class rkhunter::params {
   # rkhunter definitions
   $rootEmail = 'john.doe@example.com'
   $logFile = '/var/log/rkhunter/rkhunter.log'
+  $remoteSyslog = false
   $tftp = false
   $check_mk = false
   $oracleXE = false
