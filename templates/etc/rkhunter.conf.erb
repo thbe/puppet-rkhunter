@@ -556,9 +556,6 @@ PKGMGR=RPM
 #
 # The default value is the null string.
 #
-<<<<<<< Updated upstream
-EXISTWHITELIST="/usr/bin/whatis"
-=======
 #EXISTWHITELIST=""
 EXISTWHITELIST=/var/log/pki-ca/system
 # FreeIPA Certificate Authority
@@ -566,13 +563,6 @@ EXISTWHITELIST=/var/log/pki/pki-tomcat/ca/system
 # Some non default installed files we check
 EXISTWHITELIST=/usr/bin/GET
 EXISTWHITELIST=/usr/bin/whatis
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
 #
 # Whitelist various attributes of the specified file. The attributes are those
@@ -1346,6 +1336,9 @@ PORT_WHITELIST=TCP:25000
 ALLOWDEVFILE=/dev/shm/SDBTech-KSS-SHM-*
 <% end %>
 
+# Static rules
+ALLOWDEVFILE=/dev/.udev/uevent_seqnum
+
 # Legacy settings
 #SCRIPTWHITELIST=/usr/bin/whatis
 #SCRIPTWHITELIST=/usr/bin/ldd
@@ -1385,7 +1378,6 @@ ALLOWDEVFILE=/dev/shm/SDBTech-KSS-SHM-*
 #ALLOWDEVFILE=/dev/md/autorebuild.pid
 #ALLOWDEVFILE=/dev/.mdadm.map
 #ALLOWDEVFILE=/dev/.udev/queue.bin
-ALLOWDEVFILE=/dev/.udev/uevent_seqnum
 #ALLOWDEVFILE=/dev/.udev/rules.d/99-root.rules
 #ALLOWDEVFILE=/dev/.udev/db/net:*
 #ALLOWDEVFILE=/dev/.udev/db/input:*

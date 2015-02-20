@@ -107,6 +107,10 @@ Ignore check errors forced by SAP DAA.
 
 Ignore check errors forced by SAP ICM.
 
+####`sapDB`
+
+Ignore check errors forced by SAPDB/MaxDB.
+
 ####`sshd_root`
 
 Surpress warning if root login is permit.
