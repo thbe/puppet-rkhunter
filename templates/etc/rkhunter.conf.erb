@@ -556,7 +556,23 @@ PKGMGR=RPM
 #
 # The default value is the null string.
 #
+<<<<<<< Updated upstream
 EXISTWHITELIST="/usr/bin/whatis"
+=======
+#EXISTWHITELIST=""
+EXISTWHITELIST=/var/log/pki-ca/system
+# FreeIPA Certificate Authority
+EXISTWHITELIST=/var/log/pki/pki-tomcat/ca/system
+# Some non default installed files we check
+EXISTWHITELIST=/usr/bin/GET
+EXISTWHITELIST=/usr/bin/whatis
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
 #
 # Whitelist various attributes of the specified file. The attributes are those
@@ -756,6 +772,8 @@ ALLOWDEVFILE=/dev/.udev/db/*
 ALLOWDEVFILE=/dev/.udev/rules.d/99-root.rules
 # created by mdadm
 ALLOWDEVFILE="/dev/md/autorebuild.pid"
+# 389 Directory Server
+ALLOWDEVFILE=/dev/shm/sem.slapd-*.stats
 
 #
 # This option is used to indicate if the Phalanx2 test is to perform a basic
@@ -1083,6 +1101,10 @@ SUSPSCAN_DIRS=/tmp /var/tmp
 #
 #RTKT_DIR_WHITELIST=""
 #RTKT_FILE_WHITELIST=""
+# FreeIPA Certificate Authority
+RTKT_FILE_WHITELIST=/var/log/pki-ca/system
+# FreeIPA Certificate Authority
+RTKT_FILE_WHITELIST=/var/log/pki/pki-tomcat/ca/system
 
 #
 # The following option can be used to whitelist shared library files that would
@@ -1320,6 +1342,9 @@ PORT_PATH_WHITELIST=/usr/sap/DAA/SMDA97/exe/jstart:TCP:47107
 <% if @sapICM then %>
 PORT_WHITELIST=TCP:25000
 <% end %>
+<% if @sapDB then %>
+ALLOWDEVFILE=/dev/shm/SDBTech-KSS-SHM-*
+<% end %>
 
 # Legacy settings
 #SCRIPTWHITELIST=/usr/bin/whatis
@@ -1356,8 +1381,6 @@ PORT_WHITELIST=TCP:25000
 
 #ALLOWDEVFILE=/dev/shm/pulse-shm-*
 #ALLOWDEVFILE=/dev/shm/sem.*
-#ALLOWDEVFILE=/dev/shm/SDBTech-KSS-SHM-*
-#ALLOWDEVFILE=/dev/shm/ora_XE_*
 #ALLOWDEVFILE=/dev/md/md-device-map
 #ALLOWDEVFILE=/dev/md/autorebuild.pid
 #ALLOWDEVFILE=/dev/.mdadm.map

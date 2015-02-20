@@ -30,6 +30,9 @@
 # [*sapICM*]
 #   Ignore check errors forced by SAP ICM
 #
+# [*sapDB*]
+#   Ignore check errors forced by SAPDB/MaxDB
+#
 # [*sshd_root*]
 #   Surpress warning if root login is permit.
 #   Should be the same as PermitRootLogin in sshd_config
@@ -59,6 +62,7 @@ class rkhunter (
   $oracleXE      = $rkhunter::params::oracleXE,
   $sapDAA        = $rkhunter::params::sapDAA,
   $sapICM        = $rkhunter::params::sapICM,
+  $sapDB        = $rkhunter::params::sapDB,
   $disable_tests = $rkhunter::params::disable_tests,
   $sshd_root     = $rkhunter::params::sshd_root,
 ) inherits rkhunter::params {
