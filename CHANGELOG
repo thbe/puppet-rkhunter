@@ -32,3 +32,7 @@
 
 0.4.5 2015-02-09 thbe <project@bendler-net.de>
  * Added remote syslog switch
+
+0.4.6 2015-02-20 thbe <project@bendler-net.de>
+ * Upgraded rkhunter.conf and add switch for SAPDB
+ * https://github.com/thbe/puppet-rkhunter/pull/6
