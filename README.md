@@ -114,7 +114,7 @@ Should be the same as PermitRootLogin in sshd_config
 
 ####`warn_mail`
 
-et the user email adress that get notifications if events has warnings.
+Set the user email adress that get notifications if events has warnings.
 
 ##Limitations
 
