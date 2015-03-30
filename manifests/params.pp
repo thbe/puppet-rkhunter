@@ -44,5 +44,6 @@ class rkhunter::params {
   $sapDAA = false
   $sapICM = false
   $sshd_root = 'unset'
+  $warn_mail = ''
   $disable_tests = ['suspscan', 'hidden_procs', 'deleted_files', 'packet_cap_apps', 'apps']
 }

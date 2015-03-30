@@ -61,6 +61,7 @@ class rkhunter (
   $sapICM        = $rkhunter::params::sapICM,
   $disable_tests = $rkhunter::params::disable_tests,
   $sshd_root     = $rkhunter::params::sshd_root,
+  $warn_mail     = $rkhunter::params::warn_mail,
 ) inherits rkhunter::params {
   # Require class yum to have the relevant repositories in place
   require yum
