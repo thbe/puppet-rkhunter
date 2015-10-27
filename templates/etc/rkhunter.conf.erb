@@ -1175,6 +1175,10 @@ RTKT_FILE_WHITELIST=/var/log/pki/pki-tomcat/ca/system
 # This option has no default value.
 #
 #WEB_CMD=""
+<% if @web_cmd and @web_cmd != "" -%>
+# Contrary to what the examples show it appears that the WEB_CMD var should be without quotes
+WEB_CMD=<%= @web_cmd %>
+<% end -%>
 
 #
 # Set the following option to '1' if locking is to be used when rkhunter runs.

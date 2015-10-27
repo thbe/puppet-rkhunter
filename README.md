@@ -116,6 +116,13 @@ Ignore check errors forced by SAPDB/MaxDB.
 Surpress warning if root login is permit.
 Should be the same as PermitRootLogin in sshd_config
 
+####`repo_class`
+
+Class name needed to setup repositories. Can be undefined.
+
+####`web_cmd`
+
+Command used to pull files from the internet (ie: when --update is specified)
 
 ##Limitations
 
