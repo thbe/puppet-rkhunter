@@ -36,6 +36,15 @@ rootkit fragments and warn you, if detetcted.
 * rkhunter configuration file.
 * rkhunter database.
 
+### Setup requirements
+
+You need to activate the EPEL repository before you can setup the SSMTP instance.
+If you use a rpm based system from the RedHat family you can use my yum module (thbe-yum):
+
+```puppet
+class { "::yum": repo_epel => true }
+```
+
 ###Beginning with rkhunter
 
 include '::rkhunter' is enough to get you up and running if the parameters point to
@@ -64,7 +73,7 @@ include '::rkhunter'
 
 ```puppet
 class { '::rkhunter':
-  rootEmail => 'john.doe@example.local',
+  root_email => 'john.doe@example.local',
   tftp => true,
 }
 ```
@@ -83,11 +92,11 @@ class { '::rkhunter':
 
 The following parameters are available in the rkhunter module
 
-####`rootEmail`
+####`root_email`
 
 Set the root email adress that get notifications if events occur.
 
-####`remoteSyslog`
+####`remote_syslog`
 Set to true if remote syslog is used
 
 ####`tftp`
@@ -98,19 +107,19 @@ Ignore check errors forced by tftp.
 
 Ignore check errors forced by check_mk.
 
-####`oracleXE`
+####`oracle_xe`
 
 Ignore check errors forced by Oracle XE.
 
-####`sapDAA`
+####`sap_daa`
 
 Ignore check errors forced by SAP DAA.
 
-####`sapICM`
+####`sap_icm`
 
 Ignore check errors forced by SAP ICM.
 
-####`sapDB`
+####`sap_db`
 
 Ignore check errors forced by SAPDB/MaxDB.
 
@@ -118,10 +127,6 @@ Ignore check errors forced by SAPDB/MaxDB.
 
 Surpress warning if root login is permit.
 Should be the same as PermitRootLogin in sshd_config
-
-####`repo_class`
-
-Class name needed to setup repositories. Can be undefined.
 
 ####`web_cmd`
 

@@ -16,36 +16,36 @@ class rkhunter::config {
   $disable_tests = $rkhunter::disable_tests
 
   file {
-    $rkhunter::params::configRkhunterConf:
+    $rkhunter::params::config_rkhunter_conf:
       ensure  => present,
       mode    => '0640',
       owner   => root,
       group   => root,
-      path    => $rkhunter::params::configRkhunterConf,
-      content => template($rkhunter::params::configRkhunterConfTemplate);
+      path    => $rkhunter::params::config_rkhunter_conf,
+      content => template($rkhunter::params::config_rkhunter_conf_template);
 
-      $rkhunter::params::configRkhunterSysConf:
+      $rkhunter::params::config_rkhunter_sys_conf:
       ensure  => present,
       mode    => '0640',
       owner   => root,
       group   => root,
-      path    => $rkhunter::params::configRkhunterSysConf,
-      content => template($rkhunter::params::configRkhunterSysConfTemplate);
+      path    => $rkhunter::params::config_rkhunter_sys_conf,
+      content => template($rkhunter::params::config_rkhunter_sys_conf_template);
   }
 
   file {
-    $rkhunter::params::configRkhunterScriptDirectory:
+    $rkhunter::params::config_rkhunter_script_directory:
       ensure  => directory,
       mode    => '0755',
       owner   => root,
       group   => root;
 
-    $rkhunter::params::configRkhunterScript:
+    $rkhunter::params::config_rkhunter_script:
       ensure  => present,
       mode    => '0755',
       owner   => root,
       group   => root,
-      path    => $rkhunter::params::configRkhunterScript,
-      content => template($rkhunter::params::configRkhunterScriptTemplate);
+      path    => $rkhunter::params::config_rkhunter_script,
+      content => template($rkhunter::params::config_rkhunter_script_template);
   }
 }

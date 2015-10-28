@@ -11,5 +11,5 @@
 # Sample Usage:
 #
 class rkhunter::package {
-  package { $rkhunter::params::packageCommon: ensure => installed; }
+  package { $rkhunter::params::package_common: ensure => installed; }
 }

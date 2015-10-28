@@ -14,36 +14,36 @@ class rkhunter::params {
   # Operating system specific definitions
   case $::osfamily {
     'RedHat' : {
-      $linux = true
+      $linux                             = true
 
       # Package definition
-      $packageCommon = 'rkhunter'
+      $package_common                    = 'rkhunter'
 
       # Config definition
-      $configRkhunterConf = '/etc/rkhunter.conf'
-      $configRkhunterConfTemplate = 'rkhunter/etc/rkhunter.conf.erb'
-      $configRkhunterSysConf = '/etc/sysconfig/rkhunter'
-      $configRkhunterSysConfTemplate = 'rkhunter/sysconfig/rkhunter.erb'
-      $configRkhunterSysConfUpd = '/etc/sysconfig/rkhunter-propupdate'
-      $configRkhunterScriptDirectory = '/etc/rkhunter.d'
-      $configRkhunterScript = '/etc/rkhunter.d/checkWhiteList.sh'
-      $configRkhunterScriptTemplate = 'rkhunter/scripts/checkWhiteList.sh.erb'
+      $config_rkhunter_conf              = '/etc/rkhunter.conf'
+      $config_rkhunter_conf_template     = 'rkhunter/etc/rkhunter.conf.erb'
+      $config_rkhunter_sys_conf          = '/etc/sysconfig/rkhunter'
+      $config_rkhunter_sys_conf_template = 'rkhunter/sysconfig/rkhunter.erb'
+      $config_rkhunter_sys_conf_upd      = '/etc/sysconfig/rkhunter-propupdate'
+      $config_rkhunter_script_directory  = '/etc/rkhunter.d'
+      $config_rkhunter_script            = '/etc/rkhunter.d/checkWhiteList.sh'
+      $config_rkhunter_script_template   = 'rkhunter/scripts/checkWhiteList.sh.erb'
     }
     default  : {
-      $linux = false
+      $linux                             = false
     }
   }
 
   # rkhunter definitions
-  $rootEmail = 'john.doe@example.com'
-  $logFile = '/var/log/rkhunter/rkhunter.log'
-  $remoteSyslog = false
-  $tftp = false
-  $check_mk = false
-  $oracleXE = false
-  $sapDAA = false
-  $sapICM = false
-  $sapDB = false
-  $sshd_root = 'unset'
-  $disable_tests = ['suspscan', 'hidden_procs', 'deleted_files', 'packet_cap_apps', 'apps']
+  $root_email                            = 'john.doe@example.com'
+  $log_file                              = '/var/log/rkhunter/rkhunter.log'
+  $remote_syslog                         = false
+  $tftp                                  = false
+  $check_mk                              = false
+  $oracle_xe                             = false
+  $sap_daa                               = false
+  $sap_icm                               = false
+  $sap_db                                = false
+  $sshd_root                             = 'unset'
+  $disable_tests                         = ['suspscan', 'hidden_procs', 'deleted_files', 'packet_cap_apps', 'apps']
 }

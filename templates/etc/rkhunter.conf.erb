@@ -902,7 +902,7 @@ ALLOWDEVFILE=/dev/shm/sem.slapd-*.stats
 # The default value is '0'.
 #
 #ALLOW_SYSLOG_REMOTE_LOGGING=0
-<% if @remoteSyslog then %>
+<% if @remote_syslog then %>
 ALLOW_SYSLOG_REMOTE_LOGGING=1
 <% end %>
 
@@ -1327,16 +1327,16 @@ XINETD_ALLOWED_SVC=/etc/xinetd.d/tftp
 <% if @check_mk then %>
 XINETD_ALLOWED_SVC=/etc/xinetd.d/check_mk
 <% end %>
-<% if @oracleXE then %>
+<% if @oracle_xe then %>
 ALLOWDEVFILE=/dev/shm/ora_XE_*
 <% end %>
-<% if @sapDAA then %>
+<% if @sap_daa then %>
 PORT_PATH_WHITELIST=/usr/sap/DAA/SMDA97/exe/jstart:TCP:47107
 <% end %>
-<% if @sapICM then %>
+<% if @sap_icm then %>
 PORT_WHITELIST=TCP:25000
 <% end %>
-<% if @sapDB then %>
+<% if @sap_db then %>
 ALLOWDEVFILE=/dev/shm/SDBTech-KSS-SHM-*
 <% end %>
 

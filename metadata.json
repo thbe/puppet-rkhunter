@@ -1,6 +1,6 @@
 {
   "name": "thbe-rkhunter",
-  "version": "0.4.6",
+  "version": "0.5.0",
   "author": "thbe",
   "summary": "Rkhunter management module",
   "license": "GPL-3.0",
@@ -13,6 +13,5 @@
     { "operatingsystem": "Scientific", "operatingsystemrelease": [ "6.0", "7.0" ] }
   ],
   "dependencies": [
-    { "name": "thbe-yum", "version_range": ">= 0.4.10" }
   ]
 }
