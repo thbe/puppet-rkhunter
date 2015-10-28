@@ -41,9 +41,6 @@
 #   Command used to retrieve files from the internet (ie: while
 #   running with --update)
 #
-# [*repo_class*]
-#   If defined, it's the name of the class required to setup the repos
-#
 # === Variables
 #
 # === Examples
@@ -72,15 +69,8 @@ class rkhunter (
   $sapDB         = $rkhunter::params::sapDB,
   $disable_tests = $rkhunter::params::disable_tests,
   $sshd_root     = $rkhunter::params::sshd_root,
-  $repo_class    = 'yum',
   $web_cmd       = undef,
 ) inherits rkhunter::params {
-
-  if $repo_class and $repo_class!='' {
-    # Require repo class to have the relevant repositories in place
-    class {$repo_class:}
-    Class[$repo_class] -> Class['rkhunter']
-  }
 
   # Start workflow
   if $rkhunter::params::linux {
@@ -92,5 +82,8 @@ class rkhunter (
     Class['rkhunter::package'] ->
     Class['rkhunter::config']  ->
     Class['rkhunter::service']
+  }
+  else {
+    warning('The current operating system is not supported!')
   }
 }

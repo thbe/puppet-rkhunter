@@ -1,5 +1,8 @@
 #rkhunter
 
+[![Build Status](https://travis-ci.org/thbe/puppet-rkhunter.png?branch=master)](https://travis-ci.org/thbe/puppet-rkhunter)
+[![Puppet Forge](https://img.shields.io/puppetforge/v/thbe/rkhunter.svg)](https://forge.puppetlabs.com/thbe/rkhunter)
+
 ####Table of Contents
 
 1. [Overview](#overview)
