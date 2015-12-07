@@ -12,9 +12,6 @@
 #
 class rkhunter::config {
 
-  # pull exlicitly into scope
-  $disable_tests = $rkhunter::disable_tests
-
   file {
     $rkhunter::params::config_rkhunter_conf:
       ensure  => present,

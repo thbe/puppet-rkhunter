@@ -10,5 +10,5 @@
 #            yes - perform detailed report scan
 #                  (includes application check)
 
-MAILTO=<%= @root_email %>
+MAILTO=<%= scope.lookupvar('rkhunter::root_email') %>
 DIAG_SCAN=no
