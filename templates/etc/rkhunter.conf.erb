@@ -314,7 +314,7 @@ AUTO_X_DETECT=1
 # The default value is 'no'.
 #
 #ALLOW_SSH_ROOT_USER=no
-ALLOW_SSH_ROOT_USER=<%= @sshd_root %>
+ALLOW_SSH_ROOT_USER=<%= scope.lookupvar('rkhunter::sshd_root') %>
 
 #
 # Set this option to '1' to allow the use of the SSH-1 protocol, but note
@@ -361,7 +361,7 @@ ALLOW_SSH_ROOT_USER=<%= @sshd_root %>
 # program defaults.
 #
 ENABLE_TESTS=ALL
-DISABLE_TESTS=<%= @disable_tests.join(' ') %>
+DISABLE_TESTS=<%= scope.lookupvar('rkhunter::disable_tests').join(' ') %>
 
 #
 # The HASH_CMD option can be used to specify the command to use for the file
@@ -902,7 +902,7 @@ ALLOWDEVFILE=/dev/shm/sem.slapd-*.stats
 # The default value is '0'.
 #
 #ALLOW_SYSLOG_REMOTE_LOGGING=0
-<% if @remote_syslog then %>
+<% if scope.lookupvar('rkhunter::remote_syslog') then %>
 ALLOW_SYSLOG_REMOTE_LOGGING=1
 <% end %>
 
@@ -1175,9 +1175,9 @@ RTKT_FILE_WHITELIST=/var/log/pki/pki-tomcat/ca/system
 # This option has no default value.
 #
 #WEB_CMD=""
-<% if @web_cmd and @web_cmd != "" -%>
+<% if    scope.lookupvar('rkhunter::web_cmd') and scope.lookupvar('rkhunter::web_cmd') != "" -%>
 # Contrary to what the examples show it appears that the WEB_CMD var should be without quotes
-WEB_CMD=<%= @web_cmd %>
+WEB_CMD=<%= scope.lookupvar('rkhunter::web_cmd') %>
 <% end -%>
 
 #
@@ -1321,22 +1321,22 @@ WEB_CMD=<%= @web_cmd %>
 INSTALLDIR="/usr"
 
 # Host specific rules added by Puppet
-<% if @tftp then %>
+<% if scope.lookupvar('rkhunter::tftp') then %>
 XINETD_ALLOWED_SVC=/etc/xinetd.d/tftp
 <% end %>
-<% if @check_mk then %>
+<% if scope.lookupvar('rkhunter::check_mk') then %>
 XINETD_ALLOWED_SVC=/etc/xinetd.d/check_mk
 <% end %>
-<% if @oracle_xe then %>
+<% if scope.lookupvar('rkhunter::oracle_xe') then %>
 ALLOWDEVFILE=/dev/shm/ora_XE_*
 <% end %>
-<% if @sap_daa then %>
+<% if scope.lookupvar('rkhunter::sap_daa') then %>
 PORT_PATH_WHITELIST=/usr/sap/DAA/SMDA97/exe/jstart:TCP:47107
 <% end %>
-<% if @sap_icm then %>
+<% if scope.lookupvar('rkhunter::sap_icm') then %>
 PORT_WHITELIST=TCP:25000
 <% end %>
-<% if @sap_db then %>
+<% if scope.lookupvar('rkhunter::sap_db') then %>
 ALLOWDEVFILE=/dev/shm/SDBTech-KSS-SHM-*
 <% end %>
 
