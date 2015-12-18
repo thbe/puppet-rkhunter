@@ -1,3 +1,6 @@
+0.5.2 2015-12-18 thbe <project@bendler-net.de>
+ * Add allow rule for systemd update service
+
 0.5.1 2015-12-10 thbe <project@bendler-net.de>
  * Fix for Puppet 4 support
 
