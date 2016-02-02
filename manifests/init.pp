@@ -67,9 +67,9 @@ class rkhunter (
   $sap_daa        = $rkhunter::params::sap_daa,
   $sap_icm        = $rkhunter::params::sap_icm,
   $sap_db         = $rkhunter::params::sap_db,
-  $disable_tests  = $rkhunter::params::disable_tests,
   $sshd_root      = $rkhunter::params::sshd_root,
-  $web_cmd        = undef,
+  $web_cmd        = $rkhunter::params::web_cmd,
+  $disable_tests  = $rkhunter::params::disable_tests
 ) inherits rkhunter::params {
 
   # Start workflow

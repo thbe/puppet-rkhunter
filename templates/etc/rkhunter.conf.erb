@@ -1176,7 +1176,7 @@ RTKT_FILE_WHITELIST=/var/log/pki/pki-tomcat/ca/system
 # This option has no default value.
 #
 #WEB_CMD=""
-<% if    scope.lookupvar('rkhunter::web_cmd') and scope.lookupvar('rkhunter::web_cmd') != "" -%>
+<% if scope.lookupvar('rkhunter::web_cmd') != "unset" -%>
 # Contrary to what the examples show it appears that the WEB_CMD var should be without quotes
 WEB_CMD=<%= scope.lookupvar('rkhunter::web_cmd') %>
 <% end -%>
@@ -1322,22 +1322,22 @@ WEB_CMD=<%= scope.lookupvar('rkhunter::web_cmd') %>
 INSTALLDIR="/usr"
 
 # Host specific rules added by Puppet
-<% if scope.lookupvar('rkhunter::tftp') then %>
+<% if scope.lookupvar('rkhunter::tftp') == true then %>
 XINETD_ALLOWED_SVC=/etc/xinetd.d/tftp
 <% end %>
-<% if scope.lookupvar('rkhunter::check_mk') then %>
+<% if scope.lookupvar('rkhunter::check_mk') == true then %>
 XINETD_ALLOWED_SVC=/etc/xinetd.d/check_mk
 <% end %>
-<% if scope.lookupvar('rkhunter::oracle_xe') then %>
+<% if scope.lookupvar('rkhunter::oracle_xe') == true then %>
 ALLOWDEVFILE=/dev/shm/ora_XE_*
 <% end %>
-<% if scope.lookupvar('rkhunter::sap_daa') then %>
+<% if scope.lookupvar('rkhunter::sap_daa') == true then %>
 PORT_PATH_WHITELIST=/usr/sap/DAA/SMDA97/exe/jstart:TCP:47107
 <% end %>
-<% if scope.lookupvar('rkhunter::sap_icm') then %>
+<% if scope.lookupvar('rkhunter::sap_icm') == true then %>
 PORT_WHITELIST=TCP:25000
 <% end %>
-<% if scope.lookupvar('rkhunter::sap_db') then %>
+<% if scope.lookupvar('rkhunter::sap_db') == true then %>
 ALLOWDEVFILE=/dev/shm/SDBTech-KSS-SHM-*
 <% end %>
 

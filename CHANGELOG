@@ -1,3 +1,6 @@
+0.5.5 2016-02-02 thbe <project@bendler-net.de>
+ * Change syntax for optional parameters
+
 0.5.2 2015-12-18 thbe <project@bendler-net.de>
  * Add allow rule for systemd update service
 
