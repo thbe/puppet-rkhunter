@@ -28,15 +28,66 @@ class rkhunter::params {
       $config_rkhunter_script_directory  = '/etc/rkhunter.d'
       $config_rkhunter_script            = '/etc/rkhunter.d/checkWhiteList.sh'
       $config_rkhunter_script_template   = 'rkhunter/scripts/checkWhiteList.sh.erb'
+
+      # Misc
+      $rkhunter_bin                      = '/usr/bin/rkhunter'
+      $log_file                          = '/var/log/rkhunter/rkhunter.log'
+      $package_manager                   = 'RPM'
+    }
+    'Debian' : {
+      $linux                             = true
+
+      # Package definition
+      $package_common                    = ['rkhunter', 'unhide']
+
+      # Config definition
+      $config_rkhunter_conf              = '/etc/rkhunter.conf'
+      $config_rkhunter_conf_template     = 'rkhunter/etc/rkhunter.conf.erb'
+      $config_rkhunter_sys_conf          = '/etc/default/rkhunter'
+      $config_rkhunter_sys_conf_template = 'rkhunter/sysconfig/rkhunter.erb'
+      $config_rkhunter_sys_conf_upd      = '/etc/default/rkhunter-propupdate'
+      $config_rkhunter_script_directory  = '/usr/share/rkhunter/scripts'
+      $config_rkhunter_script            = '/usr/share/rkhunter/scripts/checkWhiteList.sh'
+      $config_rkhunter_script_template   = 'rkhunter/scripts/checkWhiteList.sh.erb'
+
+      # Misc
+      $rkhunter_bin                      = '/usr/bin/rkhunter'
+      $log_file                          = '/var/log/rkhunter.log'
+      $package_manager                   = 'DPKG'
+    }
+    'Gentoo' : {
+      $linux                             = true
+
+      # Package definition
+      $package_common                    = ['app-forensics/rkhunter', 'app-forensics/unhide']
+
+      # Config definition
+      $config_rkhunter_conf              = '/etc/rkhunter.conf'
+      $config_rkhunter_conf_template     = 'rkhunter/etc/rkhunter.conf.erb'
+      $config_rkhunter_sys_conf          = '/etc/conf.d/rkhunter'
+      $config_rkhunter_sys_conf_template = 'rkhunter/sysconfig/rkhunter.erb'
+      $config_rkhunter_sys_conf_upd      = '/etc/conf.d/rkhunter-propupdate'
+      $config_rkhunter_script_directory  = '/usr/lib/rkhunter/scripts'
+      $config_rkhunter_script            = '/usr/lib/rkhunter/scripts/checkWhiteList.sh'
+      $config_rkhunter_script_template   = 'rkhunter/scripts/checkWhiteList.sh.erb'
+
+      # Misc
+      $rkhunter_bin                      = '/usr/sbin/rkhunter'
+      $log_file                          = '/var/log/rkhunter.log'
+      $package_manager                   = 'NONE'
     }
     default  : {
       $linux                             = false
+
+      # Misc
+      $rkhunter_bin                      = '/usr/bin/rkhunter'
+      $log_file                          = '/var/log/rkhunter/rkhunter.log'
+      $package_manager                   = 'NONE'
     }
   }
 
   # rkhunter definitions
   $root_email                            = 'john.doe@example.com'
-  $log_file                              = '/var/log/rkhunter/rkhunter.log'
   $remote_syslog                         = false
   $tftp                                  = false
   $check_mk                              = false
