@@ -1,3 +1,8 @@
+0.6.0 2016-02-04 thbe <project@bendler-net.de>
+ * Merge pull request #12 from fnerdwq/allowdevfile-postgresql
+ * Merge pull request #13 from derdanne/os_compatibility
+ * Extend spec test suite
+
 0.5.5 2016-02-02 thbe <project@bendler-net.de>
  * Change syntax for optional parameters
 

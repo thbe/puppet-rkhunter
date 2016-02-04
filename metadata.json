@@ -1,6 +1,6 @@
 {
   "name": "thbe-rkhunter",
-  "version": "0.5.5",
+  "version": "0.6.0",
   "author": "thbe",
   "summary": "Rkhunter management module",
   "license": "GPL-3.0",
@@ -10,7 +10,9 @@
   "operatingsystem_support": [
     { "operatingsystem": "RedHat", "operatingsystemrelease": [ "6.0", "7.0" ] },
     { "operatingsystem": "CentOS", "operatingsystemrelease": [ "6.0", "7.0" ] },
-    { "operatingsystem": "Scientific", "operatingsystemrelease": [ "6.0", "7.0" ] }
+    { "operatingsystem": "Scientific", "operatingsystemrelease": [ "6.0", "7.0" ] },
+    { "operatingsystem": "Ubuntu", "operatingsystemrelease": [ "14.04", "15.10" ] },
+    { "operatingsystem": "Debian", "operatingsystemrelease": [ "8.0" ] }
   ],
   "dependencies": [
   ]
