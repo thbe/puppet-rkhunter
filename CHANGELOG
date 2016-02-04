@@ -1,3 +1,6 @@
+0.6.1 2016-02-04 thbe <project@bendler-net.de>
+ * Split test to generic and distribution specific
+
 0.6.0 2016-02-04 thbe <project@bendler-net.de>
  * Merge pull request #12 from fnerdwq/allowdevfile-postgresql
  * Merge pull request #13 from derdanne/os_compatibility
