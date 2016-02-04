@@ -178,7 +178,7 @@ DBDIR=/var/lib/rkhunter/db
 # subsequently commented out or removed, then the program will not run.
 #
 #SCRIPTDIR=/usr/local/lib/rkhunter/scripts
-SCRIPTDIR=/usr/share/rkhunter/scripts
+SCRIPTDIR=<%= scope.lookupvar('rkhunter::params::config_rkhunter_script_directory') %>
 
 #
 # This option can be used to modify the command directory list used by rkhunter
@@ -236,7 +236,7 @@ SCRIPTDIR=/usr/share/rkhunter/scripts
 # The default value is '/var/log/rkhunter.log'.
 #
 #LOGFILE=/var/log/rkhunter.log
-LOGFILE=/var/log/rkhunter/rkhunter.log
+LOGFILE=<%= scope.lookupvar('rkhunter::params::log_file') %>
 
 #
 # Set this option to '1' if the log file is to be appended to whenever rkhunter
@@ -433,7 +433,7 @@ DISABLE_TESTS=<%= scope.lookupvar('rkhunter::disable_tests').join(' ') %>
 # Also see the PKGMGR_NO_VRFY and USE_SUNSUM options.
 #
 #PKGMGR=NONE
-PKGMGR=RPM
+PKGMGR=<%= scope.lookupvar('rkhunter::params::package_manager') %>
 
 #
 # It is possible that a file, which is part of a package, may have been
@@ -593,12 +593,12 @@ EXISTWHITELIST=/usr/bin/whatis
 # The default value is the null string.
 #
 #SCRIPTWHITELIST=/usr/bin/groups
-SCRIPTWHITELIST=/usr/bin/whatis
-SCRIPTWHITELIST=/usr/bin/ldd
-SCRIPTWHITELIST=/usr/bin/groups
+#SCRIPTWHITELIST=/usr/bin/whatis
+#SCRIPTWHITELIST=/usr/bin/ldd
+#SCRIPTWHITELIST=/usr/bin/groups
 #SCRIPTWHITELIST=/usr/bin/GET
-SCRIPTWHITELIST=/sbin/ifup
-SCRIPTWHITELIST=/sbin/ifdown
+#SCRIPTWHITELIST=/sbin/ifup
+#SCRIPTWHITELIST=/sbin/ifdown
 
 #
 # Allow the specified file to have the immutable attribute set.
@@ -1342,7 +1342,43 @@ ALLOWDEVFILE=/dev/shm/SDBTech-KSS-SHM-*
 <% end %>
 
 # Static rules
+
+<% if scope.lookupvar('::osfamily') == 'RedHat' then %>
+EXISTWHITELIST=/var/log/pki-ca/system
+# FreeIPA Certificate Authority
+EXISTWHITELIST=/var/log/pki/pki-tomcat/ca/system
+# Some non default installed files we check
+EXISTWHITELIST=/usr/bin/GET
+EXISTWHITELIST=/usr/bin/whatis
+SCRIPTWHITELIST=/usr/bin/whatis
+SCRIPTWHITELIST=/usr/bin/ldd
+SCRIPTWHITELIST=/usr/bin/groups
+#SCRIPTWHITELIST=/usr/bin/GET
+SCRIPTWHITELIST=/sbin/ifup
+SCRIPTWHITELIST=/sbin/ifdown
+<% end %>
+
+<% if scope.lookupvar('::osfamily') == 'Debian' then %>
 ALLOWDEVFILE=/dev/.udev/uevent_seqnum
+ALLOWDEVFILE=/dev/.blkid.tab
+ALLOWDEVFILE=/dev/.initramfs
+ALLOWHIDDENFILE=/dev/.blkid.tab
+ALLOWHIDDENFILE="/dev/.initramfs"
+ALLOWHIDDENDIR=/etc/.java
+ALLOWHIDDENDIR=/dev/.mdadm
+ALLOWHIDDENDIR=/dev/.udev
+<% end %>
+
+<% if scope.lookupvar('::osfamily') == 'Gentoo' then %>
+SCRIPTWHITELIST=/usr/bin/ldd
+SCRIPTWHITELIST=/usr/bin/lwp-request
+SCRIPTWHITELIST=/bin/egrep
+SCRIPTWHITELIST=/bin/fgrep
+ALLOWHIDDENDIR=/etc/.java
+ALLOWHIDDENDIR=/dev/.mdadm
+ALLOWHIDDENDIR=/dev/.udev
+ALLOWDEVFILE=/dev/shm/ShM.*
+<% end %>
 
 # Legacy settings
 #SCRIPTWHITELIST=/usr/bin/whatis
@@ -1351,10 +1387,6 @@ ALLOWDEVFILE=/dev/.udev/uevent_seqnum
 #SCRIPTWHITELIST=/usr/bin/GET
 #SCRIPTWHITELIST=/sbin/ifup
 #SCRIPTWHITELIST=/sbin/ifdown
-
-#ALLOWHIDDENDIR=/etc/.java
-#ALLOWHIDDENDIR=/dev/.mdadm
-#ALLOWHIDDENDIR=/dev/.udev
 
 #ALLOWHIDDENFILE=/usr/share/man/man1/..1.gz
 #ALLOWHIDDENFILE=/lib*/.libcrypto.so.*.hmac

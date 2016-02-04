@@ -11,6 +11,7 @@ describe "rkhunter" do
       it { is_expected.to compile.with_all_deps }
 
       case facts[:osfamily]
+      when 'Gentoo'
       when 'Debian'
       when 'RedHat'
         if facts[:lsbmajdistrelease] = '5'
