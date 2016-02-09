@@ -1324,27 +1324,26 @@ WEB_CMD=<%= scope.lookupvar('rkhunter::web_cmd') %>
 INSTALLDIR="/usr"
 
 # Host specific rules added by Puppet
-<% if scope.lookupvar('rkhunter::tftp') == true then %>
+<% if scope.lookupvar('rkhunter::tftp') then %>
 XINETD_ALLOWED_SVC=/etc/xinetd.d/tftp
 <% end %>
-<% if scope.lookupvar('rkhunter::check_mk') == true then %>
+<% if scope.lookupvar('rkhunter::check_mk') then %>
 XINETD_ALLOWED_SVC=/etc/xinetd.d/check_mk
 <% end %>
-<% if scope.lookupvar('rkhunter::oracle_xe') == true then %>
+<% if scope.lookupvar('rkhunter::oracle_xe') then %>
 ALLOWDEVFILE=/dev/shm/ora_XE_*
 <% end %>
-<% if scope.lookupvar('rkhunter::sap_daa') == true then %>
+<% if scope.lookupvar('rkhunter::sap_daa') then %>
 PORT_PATH_WHITELIST=/usr/sap/DAA/SMDA97/exe/jstart:TCP:47107
 <% end %>
-<% if scope.lookupvar('rkhunter::sap_icm') == true then %>
+<% if scope.lookupvar('rkhunter::sap_icm') then %>
 PORT_WHITELIST=TCP:25000
 <% end %>
-<% if scope.lookupvar('rkhunter::sap_db') == true then %>
+<% if scope.lookupvar('rkhunter::sap_db') then %>
 ALLOWDEVFILE=/dev/shm/SDBTech-KSS-SHM-*
 <% end %>
 
 # Static rules
-
 <% if scope.lookupvar('::osfamily') == 'RedHat' then %>
 EXISTWHITELIST=/var/log/pki-ca/system
 # FreeIPA Certificate Authority
@@ -1359,7 +1358,6 @@ SCRIPTWHITELIST=/usr/bin/groups
 SCRIPTWHITELIST=/sbin/ifup
 SCRIPTWHITELIST=/sbin/ifdown
 <% end %>
-
 <% if scope.lookupvar('::osfamily') == 'Debian' then %>
 ALLOWDEVFILE=/dev/.udev/uevent_seqnum
 ALLOWDEVFILE=/dev/.blkid.tab
@@ -1370,7 +1368,6 @@ ALLOWHIDDENDIR=/etc/.java
 ALLOWHIDDENDIR=/dev/.mdadm
 ALLOWHIDDENDIR=/dev/.udev
 <% end %>
-
 <% if scope.lookupvar('::osfamily') == 'Gentoo' then %>
 SCRIPTWHITELIST=/usr/bin/ldd
 SCRIPTWHITELIST=/usr/bin/lwp-request

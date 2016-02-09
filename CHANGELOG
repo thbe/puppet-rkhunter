@@ -1,3 +1,6 @@
+0.6.2 2016-02-09 thbe <project@bendler-net.de>
+ * Fix true/false detection for older Puppets
+
 0.6.1 2016-02-04 thbe <project@bendler-net.de>
  * Split test to generic and distribution specific
 
