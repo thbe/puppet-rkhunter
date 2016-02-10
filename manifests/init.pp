@@ -59,17 +59,19 @@
 # Copyright 2015 Thomas Bendler
 #
 class rkhunter (
-  $root_email     = $rkhunter::params::root_email,
-  $remote_syslog  = $rkhunter::params::remote_syslog,
-  $tftp           = $rkhunter::params::tftp,
-  $check_mk       = $rkhunter::params::check_mk,
-  $oracle_xe      = $rkhunter::params::oracle_xe,
-  $sap_daa        = $rkhunter::params::sap_daa,
-  $sap_icm        = $rkhunter::params::sap_icm,
-  $sap_db         = $rkhunter::params::sap_db,
-  $sshd_root      = $rkhunter::params::sshd_root,
-  $web_cmd        = $rkhunter::params::web_cmd,
-  $disable_tests  = $rkhunter::params::disable_tests
+  $root_email           = $rkhunter::params::root_email,
+  $warning_email        = $rkhunter::params::warning_email,
+  $enable_warning_email = $rkhunter::params::enable_warning_email,
+  $remote_syslog        = $rkhunter::params::remote_syslog,
+  $tftp                 = $rkhunter::params::tftp,
+  $check_mk             = $rkhunter::params::check_mk,
+  $oracle_xe            = $rkhunter::params::oracle_xe,
+  $sap_daa              = $rkhunter::params::sap_daa,
+  $sap_icm              = $rkhunter::params::sap_icm,
+  $sap_db               = $rkhunter::params::sap_db,
+  $sshd_root            = $rkhunter::params::sshd_root,
+  $web_cmd              = $rkhunter::params::web_cmd,
+  $disable_tests        = $rkhunter::params::disable_tests
 ) inherits rkhunter::params {
 
   # Start workflow

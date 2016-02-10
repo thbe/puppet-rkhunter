@@ -88,6 +88,8 @@ class rkhunter::params {
 
   # rkhunter definitions
   $root_email                            = 'john.doe@example.com'
+  $warning_email                         = 'john.doe@example.com'
+  $enable_warning_email                  = false
   $remote_syslog                         = false
   $tftp                                  = false
   $check_mk                              = false

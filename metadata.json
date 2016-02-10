@@ -1,6 +1,6 @@
 {
   "name": "thbe-rkhunter",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "author": "thbe",
   "summary": "Rkhunter management module",
   "license": "GPL-3.0",
@@ -9,6 +9,7 @@
   "issues_url": "https://github.com/thbe/puppet-rkhunter/issues",
   "operatingsystem_support": [
     { "operatingsystem": "RedHat", "operatingsystemrelease": [ "6.0", "7.0" ] },
+    { "operatingsystem": "OracleLinux", "operatingsystemrelease": [ "6.0", "7.0" ] },
     { "operatingsystem": "CentOS", "operatingsystemrelease": [ "6.0", "7.0" ] },
     { "operatingsystem": "Scientific", "operatingsystemrelease": [ "6.0", "7.0" ] },
     { "operatingsystem": "Ubuntu", "operatingsystemrelease": [ "14.04", "15.10" ] },

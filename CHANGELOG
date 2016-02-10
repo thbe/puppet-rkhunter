@@ -1,3 +1,7 @@
+0.6.3 2016-02-10 thbe <project@bendler-net.de>
+ * Add warning email
+ * Add OEL support
+
 0.6.2 2016-02-09 thbe <project@bendler-net.de>
  * Fix true/false detection for older Puppets
 

@@ -134,7 +134,11 @@
 # Also see the MAIL_CMD option.
 #
 #MAIL-ON-WARNING=me@mydomain   root@mydomain
+<% if scope.lookupvar('rkhunter::enable_warning_email') then -%>
+MAIL-ON-WARNING=<%= scope.lookupvar('rkhunter::warning_email') %>
+<% else %>
 MAIL-ON-WARNING=
+<% end -%>
 
 #
 # This option specifies the mail command to use if MAIL-ON-WARNING is set.
@@ -1324,27 +1328,27 @@ WEB_CMD=<%= scope.lookupvar('rkhunter::web_cmd') %>
 INSTALLDIR="/usr"
 
 # Host specific rules added by Puppet
-<% if scope.lookupvar('rkhunter::tftp') then %>
+<% if scope.lookupvar('rkhunter::tftp') then -%>
 XINETD_ALLOWED_SVC=/etc/xinetd.d/tftp
-<% end %>
-<% if scope.lookupvar('rkhunter::check_mk') then %>
+<% end -%>
+<% if scope.lookupvar('rkhunter::check_mk') then -%>
 XINETD_ALLOWED_SVC=/etc/xinetd.d/check_mk
-<% end %>
-<% if scope.lookupvar('rkhunter::oracle_xe') then %>
+<% end -%>
+<% if scope.lookupvar('rkhunter::oracle_xe') then -%>
 ALLOWDEVFILE=/dev/shm/ora_XE_*
-<% end %>
-<% if scope.lookupvar('rkhunter::sap_daa') then %>
+<% end -%>
+<% if scope.lookupvar('rkhunter::sap_daa') then -%>
 PORT_PATH_WHITELIST=/usr/sap/DAA/SMDA97/exe/jstart:TCP:47107
-<% end %>
-<% if scope.lookupvar('rkhunter::sap_icm') then %>
+<% end -%>
+<% if scope.lookupvar('rkhunter::sap_icm') then -%>
 PORT_WHITELIST=TCP:25000
-<% end %>
-<% if scope.lookupvar('rkhunter::sap_db') then %>
+<% end -%>
+<% if scope.lookupvar('rkhunter::sap_db') then -%>
 ALLOWDEVFILE=/dev/shm/SDBTech-KSS-SHM-*
-<% end %>
+<% end -%>
 
 # Static rules
-<% if scope.lookupvar('::osfamily') == 'RedHat' then %>
+<% if scope.lookupvar('::osfamily') == 'RedHat' then -%>
 EXISTWHITELIST=/var/log/pki-ca/system
 # FreeIPA Certificate Authority
 EXISTWHITELIST=/var/log/pki/pki-tomcat/ca/system
@@ -1357,8 +1361,8 @@ SCRIPTWHITELIST=/usr/bin/groups
 #SCRIPTWHITELIST=/usr/bin/GET
 SCRIPTWHITELIST=/sbin/ifup
 SCRIPTWHITELIST=/sbin/ifdown
-<% end %>
-<% if scope.lookupvar('::osfamily') == 'Debian' then %>
+<% end -%>
+<% if scope.lookupvar('::osfamily') == 'Debian' then -%>
 ALLOWDEVFILE=/dev/.udev/uevent_seqnum
 ALLOWDEVFILE=/dev/.blkid.tab
 ALLOWDEVFILE=/dev/.initramfs
@@ -1367,8 +1371,8 @@ ALLOWHIDDENFILE="/dev/.initramfs"
 ALLOWHIDDENDIR=/etc/.java
 ALLOWHIDDENDIR=/dev/.mdadm
 ALLOWHIDDENDIR=/dev/.udev
-<% end %>
-<% if scope.lookupvar('::osfamily') == 'Gentoo' then %>
+<% end -%>
+<% if scope.lookupvar('::osfamily') == 'Gentoo' then -%>
 SCRIPTWHITELIST=/usr/bin/ldd
 SCRIPTWHITELIST=/usr/bin/lwp-request
 SCRIPTWHITELIST=/bin/egrep
@@ -1377,7 +1381,7 @@ ALLOWHIDDENDIR=/etc/.java
 ALLOWHIDDENDIR=/dev/.mdadm
 ALLOWHIDDENDIR=/dev/.udev
 ALLOWDEVFILE=/dev/shm/ShM.*
-<% end %>
+<% end -%>
 
 # Legacy settings
 #SCRIPTWHITELIST=/usr/bin/whatis

@@ -15,6 +15,8 @@ describe 'rkhunter', :type => :class do
       let(:params) {
         {
           :root_email => 'john.doe@example.com',
+          :warning_email => 'john.doe@example.com',
+          :enable_warning_email => true,
           :remote_syslog => true,
           :tftp => true,
           :check_mk => true,
@@ -38,6 +40,7 @@ describe 'rkhunter', :type => :class do
 
       it 'should generate valid content for rkhunter.conf - generic part' do
         content = catalogue.resource('file', '/etc/rkhunter.conf').send(:parameters)[:content]
+        expect(content).to match('MAIL-ON-WARNING=john.doe@example.com')
         expect(content).to match('ALLOW_SSH_ROOT_USER=without-password')
         expect(content).to match('DISABLE_TESTS=suspscan hidden_procs deleted_files packet_cap_apps apps')
         expect(content).to match('ALLOW_SYSLOG_REMOTE_LOGGING=1')
@@ -65,6 +68,11 @@ describe 'rkhunter', :type => :class do
           expect(content).to match('PKGMGR=RPM')
           expect(content).to match('EXISTWHITELIST=/var/log/pki-ca/system')
           expect(content).to match('# FreeIPA Certificate Authority')
+        end
+
+        it 'should generate valid content for sysconfig rkhunter - RedHat part' do
+          content = catalogue.resource('file', '/etc/sysconfig/rkhunter').send(:parameters)[:content]
+          expect(content).to match('MAILTO=john.doe@example.com')
         end
       when 'Debian'
         it 'should generate valid content for rkhunter.conf - Debian part' do
