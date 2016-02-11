@@ -1350,27 +1350,25 @@ ALLOWDEVFILE=/dev/shm/SDBTech-KSS-SHM-*
 # Static rules
 <% if scope.lookupvar('::osfamily') == 'RedHat' then -%>
 EXISTWHITELIST=/var/log/pki-ca/system
-# FreeIPA Certificate Authority
 EXISTWHITELIST=/var/log/pki/pki-tomcat/ca/system
-# Some non default installed files we check
 EXISTWHITELIST=/usr/bin/GET
 EXISTWHITELIST=/usr/bin/whatis
 SCRIPTWHITELIST=/usr/bin/whatis
 SCRIPTWHITELIST=/usr/bin/ldd
 SCRIPTWHITELIST=/usr/bin/groups
-#SCRIPTWHITELIST=/usr/bin/GET
 SCRIPTWHITELIST=/sbin/ifup
 SCRIPTWHITELIST=/sbin/ifdown
+ALLOWDEVFILE=/dev/.udev/uevent_seqnum
 <% end -%>
 <% if scope.lookupvar('::osfamily') == 'Debian' then -%>
-ALLOWDEVFILE=/dev/.udev/uevent_seqnum
-ALLOWDEVFILE=/dev/.blkid.tab
-ALLOWDEVFILE=/dev/.initramfs
 ALLOWHIDDENFILE=/dev/.blkid.tab
 ALLOWHIDDENFILE="/dev/.initramfs"
 ALLOWHIDDENDIR=/etc/.java
 ALLOWHIDDENDIR=/dev/.mdadm
 ALLOWHIDDENDIR=/dev/.udev
+ALLOWDEVFILE=/dev/.udev/uevent_seqnum
+ALLOWDEVFILE=/dev/.blkid.tab
+ALLOWDEVFILE=/dev/.initramfs
 <% end -%>
 <% if scope.lookupvar('::osfamily') == 'Gentoo' then -%>
 SCRIPTWHITELIST=/usr/bin/ldd
