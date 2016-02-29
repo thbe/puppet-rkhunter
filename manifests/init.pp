@@ -56,7 +56,7 @@
 #
 # === Copyright
 #
-# Copyright 2015 Thomas Bendler
+# Copyright 2016 Thomas Bendler
 #
 class rkhunter (
   $root_email           = $rkhunter::params::root_email,
@@ -84,8 +84,7 @@ class rkhunter (
     Class['rkhunter::package'] ->
     Class['rkhunter::config']  ->
     Class['rkhunter::service']
-  }
-  else {
+  } else {
     warning('The current operating system is not supported!')
   }
 }
