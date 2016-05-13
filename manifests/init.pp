@@ -24,8 +24,8 @@
 # [*oracle_xe*]
 #   Ignore check errors forced by Oracle XE
 #
-# [*sap_daa*]
-#   Ignore check errors forced by SAP DAA
+# [*sap_igs*]
+#   Ignore check errors forced by SAP IGS
 #
 # [*sap_icm*]
 #   Ignore check errors forced by SAP ICM
@@ -66,7 +66,7 @@ class rkhunter (
   $tftp                 = $rkhunter::params::tftp,
   $check_mk             = $rkhunter::params::check_mk,
   $oracle_xe            = $rkhunter::params::oracle_xe,
-  $sap_daa              = $rkhunter::params::sap_daa,
+  $sap_igs              = $rkhunter::params::sap_igs,
   $sap_icm              = $rkhunter::params::sap_icm,
   $sap_db               = $rkhunter::params::sap_db,
   $sshd_root            = $rkhunter::params::sshd_root,

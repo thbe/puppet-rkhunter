@@ -1,3 +1,7 @@
+0.6.5 2016-05-13 thbe <project@bendler-net.de>
+ * Remove SAP DAA exception
+ * Add SAP IGS exception
+
 0.6.4 2016-02-11 thbe <project@bendler-net.de>
  * Add additional RHEL5 exceptions
 

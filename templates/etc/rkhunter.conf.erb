@@ -1337,8 +1337,8 @@ XINETD_ALLOWED_SVC=/etc/xinetd.d/check_mk
 <% if scope.lookupvar('rkhunter::oracle_xe') then -%>
 ALLOWDEVFILE=/dev/shm/ora_XE_*
 <% end -%>
-<% if scope.lookupvar('rkhunter::sap_daa') then -%>
-PORT_PATH_WHITELIST=/usr/sap/DAA/SMDA97/exe/jstart:TCP:47107
+<% if scope.lookupvar('rkhunter::sap_igs') then -%>
+PORT_WHITELIST=TCP:47107
 <% end -%>
 <% if scope.lookupvar('rkhunter::sap_icm') then -%>
 PORT_WHITELIST=TCP:25000

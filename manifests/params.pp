@@ -94,7 +94,7 @@ class rkhunter::params {
   $tftp                                  = false
   $check_mk                              = false
   $oracle_xe                             = false
-  $sap_daa                               = false
+  $sap_igs                               = false
   $sap_icm                               = false
   $sap_db                                = false
   $sshd_root                             = 'unset'

@@ -112,9 +112,9 @@ Ignore check errors forced by check_mk.
 
 Ignore check errors forced by Oracle XE.
 
-####`sap_daa`
+####`sap_igs`
 
-Ignore check errors forced by SAP DAA.
+Ignore check errors forced by SAP IGS.
 
 ####`sap_icm`
 

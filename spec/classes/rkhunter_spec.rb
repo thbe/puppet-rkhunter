@@ -21,7 +21,7 @@ describe 'rkhunter', :type => :class do
           :tftp => true,
           :check_mk => true,
           :oracle_xe => true,
-          :sap_daa => true,
+          :sap_igs => true,
           :sap_icm => true,
           :sap_db => true,
           :sshd_root => 'without-password',
@@ -48,7 +48,7 @@ describe 'rkhunter', :type => :class do
         expect(content).to match('XINETD_ALLOWED_SVC=/etc/xinetd.d/tftp')
         expect(content).to match('XINETD_ALLOWED_SVC=/etc/xinetd.d/check_mk')
         expect(content).to match('ALLOWDEVFILE=/dev/shm/ora_XE_*')
-        expect(content).to match('PORT_PATH_WHITELIST=/usr/sap/DAA/SMDA97/exe/jstart:TCP:47107')
+        expect(content).to match('PORT_WHITELIST=TCP:47107')
         expect(content).to match('PORT_WHITELIST=TCP:25000')
         expect(content).to match('ALLOWDEVFILE=/dev/shm/SDBTech-KSS-SHM-*')
       end
