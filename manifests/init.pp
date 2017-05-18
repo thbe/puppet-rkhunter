@@ -74,7 +74,7 @@ class rkhunter (
   $sap_db               = $rkhunter::params::sap_db,
   $sshd_root            = $rkhunter::params::sshd_root,
   $web_cmd              = $rkhunter::params::web_cmd,
-  $disable_tests        = $rkhunter::params::disable_tests
+  $disable_tests        = $rkhunter::params::disable_tests,
   $cron_daily_run       = $rkhunter::params::cron_daily_run
 ) inherits rkhunter::params {
 
