@@ -133,6 +133,10 @@ Should be the same as PermitRootLogin in sshd_config
 
 Command used to pull files from the internet (ie: when --update is specified)
 
+####`cron_daily_run`
+
+Enable/Disable daily Cron runs
+
 ##Limitations
 
 This module has been built on and tested against Puppet 3.2 and higher.
