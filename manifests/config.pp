@@ -27,8 +27,8 @@ class rkhunter::config {
   }
 
   file { $rkhunter::params::config_rkhunter_script_directory:
-    ensure  => directory,
-    mode    => '0755';
+    ensure => directory,
+    mode   => '0755';
   }
 
   file { $rkhunter::params::config_rkhunter_script:

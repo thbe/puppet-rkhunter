@@ -59,7 +59,7 @@
 #
 # === Copyright
 #
-# Copyright 2016 Thomas Bendler
+# Copyright 2017 Thomas Bendler
 #
 class rkhunter (
   $root_email           = $rkhunter::params::root_email,
@@ -80,14 +80,10 @@ class rkhunter (
 
   # Start workflow
   if $rkhunter::params::linux {
-    # Containment
-    contain rkhunter::package
-    contain rkhunter::config
-    contain rkhunter::service
-
-    Class['rkhunter::package'] ->
-    Class['rkhunter::config']  ->
-    Class['rkhunter::service']
+    class{ '::rkhunter::package': }
+    -> class{ '::rkhunter::config': }
+    -> class{ '::rkhunter::service': }
+    -> Class['rkhunter']
   } else {
     warning('The current operating system is not supported!')
   }

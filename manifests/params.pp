@@ -38,7 +38,8 @@ class rkhunter::params {
       $linux                             = true
 
       # Package definition
-      $package_common                    = ['rkhunter', 'unhide']
+      $package_common                    = 'rkhunter'
+      $package_unhide                    = 'unhide'
 
       # Config definition
       $config_rkhunter_conf              = '/etc/rkhunter.conf'
@@ -59,7 +60,8 @@ class rkhunter::params {
       $linux                             = true
 
       # Package definition
-      $package_common                    = ['app-forensics/rkhunter', 'app-forensics/unhide']
+      $package_common                    = 'app-forensics/rkhunter'
+      $package_unhide                    = 'app-forensics/unhide'
 
       # Config definition
       $config_rkhunter_conf              = '/etc/rkhunter.conf'
