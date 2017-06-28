@@ -1,5 +1,3 @@
 fixtures:
   symlinks:
     rkhunter: "#{source_dir}"
-  repositories:
-  forge_modules:
