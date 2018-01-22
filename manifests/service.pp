@@ -17,4 +17,3 @@ class rkhunter::service {
     onlyif  => "/usr/bin/test ! -e ${::rkhunter::params::config_rkhunter_sys_conf_upd}",
   }
 }
-
