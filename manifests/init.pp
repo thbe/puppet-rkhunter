@@ -9,8 +9,6 @@
 #  check_mk = boolean, should check_mk check be enabled or disabled
 #  icman = boolean, should icman network check be enabled or disabled
 #
-  $warning_email        = $rkhunter::params::warning_email,
-  $enable_warning_email = $rkhunter::params::enable_warning_email,
 # [*root_email*]
 #   Set the root email address that get notifications if events occur
 #
