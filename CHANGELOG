@@ -1,3 +1,8 @@
+0.7.0 2018-01-22 thbe <project@bendler-net.de>
+ * Merged typo fix
+ * Add automatic forge deploy
+ * Enhanced ci capabilities
+
 0.6.5 2016-05-13 thbe <project@bendler-net.de>
  * Remove SAP DAA exception
  * Add SAP IGS exception

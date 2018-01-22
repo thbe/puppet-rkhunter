@@ -2,6 +2,7 @@ source ENV['GEM_SOURCE'] || "https://rubygems.org"
 
 group :test do
   gem 'coveralls'
+  gem 'facter'
   gem 'json_pure'
   gem 'metadata-json-lint'
   gem 'puppet'
@@ -12,12 +13,15 @@ group :test do
   gem 'puppet-lint-trailing_comma-check'
   gem 'puppet-lint-unquoted_string-check'
   gem 'puppet-lint-version_comparison-check'
+  gem 'puppet-strings'
   gem 'puppetlabs_spec_helper'
   gem 'rake'
+  gem 'rgen'
   gem 'rspec'
   gem 'rspec-puppet'
   gem 'rspec-puppet-facts'
   gem 'rubocop'
+  gem 'semantic_puppet'
   gem 'simplecov'
   gem 'simplecov-console'
   gem 'yard'
