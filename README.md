@@ -54,7 +54,7 @@ can use:
 
 ```puppet
 class { '::rkhunter':
-  rootEmail => 'john.doe@example.local',
+  root_email => 'john.doe@example.local',
 }
 ```
 
