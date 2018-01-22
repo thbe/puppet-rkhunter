@@ -4,7 +4,7 @@ describe 'rkhunter', :type => :class do
   on_supported_os.each do |os, facts|
     context "on #{os}" do
       let(:facts)  { facts }
-      let(:params) { { root_email: 'john.doe@example.com', warning_email: 'john.doe@example.com', enable_warning_email: true, remote_syslog: true, tftp: true, check_mk: true, oracle_xe: true, sap_igs: true, sap_icm: true, sap_db: true, sshd_root: 'without-password', web_cmd: 'curl', cron_daily_run: 'y', disable_tests: [ 'suspscan', 'hidden_procs', 'deleted_files', 'packet_cap_apps', 'apps' ] } }
+      let(:params) { { root_email: 'john.doe@example.com', warning_email: 'john.doe@example.com', enable_warning_email: true, remote_syslog: true, tftp: true, check_mk: true, oracle_xe: true, sap_igs: true, sap_icm: true, sap_db: true, sshd_root: 'without-password', web_cmd: 'curl', cron_daily_run: 'y', disable_tests: ['suspscan','hidden_procs','deleted_files','packet_cap_apps','apps'] } }
 
       it { is_expected.to compile.with_all_deps }
 

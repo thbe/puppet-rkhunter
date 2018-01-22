@@ -17,7 +17,7 @@ class { 'rkhunter':
   sshd_root            => 'without-password',
   web_cmd              => 'curl',
   cron_daily_run       => 'y',
-  disable_tests        => [ 'suspscan', 'hidden_procs', 'deleted_files', 'packet_cap_apps', 'apps' ],
+  disable_tests        => ['suspscan','hidden_procs','deleted_files','packet_cap_apps','apps'],
 }
 CLASSPARAMETER
   }
