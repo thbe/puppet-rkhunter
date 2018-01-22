@@ -54,7 +54,7 @@ can use:
 
 ```puppet
 class { '::rkhunter':
-  rootEmail => 'john.doe@example.local',
+  root_email => 'john.doe@example.local',
 }
 ```
 
@@ -94,7 +94,15 @@ The following parameters are available in the rkhunter module
 
 #### `root_email`
 
-Set the root email adress that get notifications if events occur.
+Set the root email address that get notifications if events occur.
+
+#### `warning_email`
+
+Set the email address that gets notifications if warnings occur.
+
+#### `enable_warning_email`
+
+Set to true to send emails on warnings (default: false).
 
 #### `remote_syslog`
 Set to true if remote syslog is used
