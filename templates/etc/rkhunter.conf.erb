@@ -147,7 +147,7 @@
 # The default is to use the 'mail' command, with a subject line
 # of '[rkhunter] Warnings found for ${HOST_NAME}'.
 #
-#MAIL_CMD=mail -s "[rkhunter] Warnings found for ${HOST_NAME}"
+MAIL_CMD=mail -s "[rkhunter] Warnings found for ${HOST_NAME}"
 
 #
 # This option specifies the directory to use for temporary files.
@@ -237,7 +237,7 @@ SCRIPTDIR=/usr/share/rkhunter/scripts
 #
 # The default value is '/var/log/rkhunter.log'.
 #
-LOGFILE=/var/log/rkhunter/rkhunter.log
+#LOGFILE=/var/log/rkhunter/rkhunter.log
 
 #
 # Set this option to '1' if the log file is to be appended to whenever rkhunter
@@ -314,7 +314,6 @@ AUTO_X_DETECT=1
 # The default value is 'no'.
 #
 #ALLOW_SSH_ROOT_USER=no
-ALLOW_SSH_ROOT_USER=unset
 
 #
 # Set this option to '1' to allow the use of the SSH-1 protocol, but note
@@ -363,7 +362,6 @@ ALLOW_SSH_PROT_V1=2
 #
 ENABLE_TESTS=ALL
 #DISABLE_TESTS=suspscan hidden_ports hidden_procs deleted_files packet_cap_apps apps
-DISABLE_TESTS=suspscan hidden_ports deleted_files packet_cap_apps apps ipc_shared_mem
 
 #
 # The HASH_CMD option can be used to specify the command to use for the file
@@ -445,7 +443,6 @@ DISABLE_TESTS=suspscan hidden_ports deleted_files packet_cap_apps apps ipc_share
 # Also see the PKGMGR_NO_VRFY and USE_SUNSUM options.
 #
 #PKGMGR=NONE
-PKGMGR=RPM
 
 #
 # It is possible that a file, which is part of a package, may have been
