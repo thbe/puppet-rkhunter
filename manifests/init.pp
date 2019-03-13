@@ -79,7 +79,7 @@ class rkhunter (
   $sap_icm              = $rkhunter::params::sap_icm,
   $sap_db               = $rkhunter::params::sap_db,
   $sshd_root            = $rkhunter::params::sshd_root,
-  $ssh_prot_v1          = $rkhunter::params::$ssh_prot_v1,
+  $ssh_prot_v1          = $rkhunter::params::ssh_prot_v1,
   $web_cmd              = $rkhunter::params::web_cmd,
   $disable_tests        = $rkhunter::params::disable_tests,
   $cron_daily_run       = $rkhunter::params::cron_daily_run
