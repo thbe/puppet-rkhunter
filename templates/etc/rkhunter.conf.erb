@@ -1445,6 +1445,7 @@ MAIL-ON-WARNING=
 SCRIPTDIR=<%= scope.lookupvar('rkhunter::params::config_rkhunter_script_directory') %>
 LOGFILE=<%= scope.lookupvar('rkhunter::params::log_file') %>
 ALLOW_SSH_ROOT_USER=<%= scope.lookupvar('rkhunter::sshd_root') %>
+ALLOW_SSH_PROT_V1=<%= scope.lookupvar('rkhunter::ssh_prot_v1') %>
 DISABLE_TESTS=<%= scope.lookupvar('rkhunter::disable_tests').join(' ') %>
 PKGMGR=<%= scope.lookupvar('rkhunter::params::package_manager') %>
 <% if scope.lookupvar('rkhunter::remote_syslog') then %>
