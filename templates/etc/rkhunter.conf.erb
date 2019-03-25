@@ -1500,6 +1500,7 @@ ALLOWHIDDENDIR=/dev/.udev
 ALLOWDEVFILE=/dev/.udev/uevent_seqnum
 ALLOWDEVFILE=/dev/.blkid.tab
 ALLOWDEVFILE=/dev/.initramfs
+ALLOWDEVFILE=/dev/.udev/rules.d/root.rules
 <% end -%>
 <% if scope.lookupvar('::osfamily') == 'Gentoo' then -%>
 SCRIPTWHITELIST=/usr/bin/ldd
