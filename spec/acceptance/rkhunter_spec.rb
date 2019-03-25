@@ -2,7 +2,7 @@ require 'spec_helper_acceptance'
 
 describe 'rkhunter' do
   let(:manifest) {
-    <<-CLASSPARAMETER
+<<-CLASSPARAMETER
 class { 'rkhunter':
   root_email           => 'john.doe@example.com',
   warning_email        => 'john.doe@example.com',
