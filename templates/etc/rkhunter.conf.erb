@@ -1562,3 +1562,7 @@ ALLOWDEVFILE=/dev/shm/ShM.*
 #ALLOWDEVFILE=/dev/.SRC-unix*
 #ALLOWDEVFILE=/dev/.mdadm*
 #ALLOWDEVFILE=/dev/.systemd*
+
+<%- @allow_parameters.each_pair do |type, data_path| -%>
+<%= type %>=<%= data_path %>
+<%- end -%>
