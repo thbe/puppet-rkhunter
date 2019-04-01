@@ -11,7 +11,7 @@
 # Sample Usage: include rkhunter::config
 #
 class rkhunter::config (
-  Optional[Hash[String[1], Stdlib::Absolutepath]] $allow_parameters
+  Hash[String[1], Stdlib::Absolutepath] $allow_parameters
   ) {
 
   file { $rkhunter::params::config_rkhunter_conf:
