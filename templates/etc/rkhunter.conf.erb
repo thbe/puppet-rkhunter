@@ -1509,9 +1509,11 @@ ALLOWHIDDENDIR=/dev/.udev
 ALLOWDEVFILE=/dev/shm/ShM.*
 <% end -%>
 
+<% if scope.lookupvar('rkhunter::allow_parameters') then -%>
 <%- @allow_parameters.each_pair do |type, data_path| -%>
 <%= type %>=<%= data_path %>
-<%- end -%>
+<% end -%>
+<% end -%>
 
 # Legacy settings
 #SCRIPTWHITELIST=/usr/bin/whatis
