@@ -328,7 +328,6 @@ AUTO_X_DETECT=1
 # The default value is '0'.
 #
 #ALLOW_SSH_PROT_V1=0
-ALLOW_SSH_PROT_V1=2
 
 #
 # This setting tells rkhunter the directory containing the SSH configuration
@@ -1477,37 +1476,8 @@ ALLOWDEVFILE=/dev/shm/SDBTech-KSS-SHM-*
 <% end -%>
 
 # Static rules
-<% if scope.lookupvar('::osfamily') == 'RedHat' then -%>
-EXISTWHITELIST=/var/log/pki-ca/system
-EXISTWHITELIST=/var/log/pki/pki-tomcat/ca/system
-EXISTWHITELIST=/usr/bin/GET
-EXISTWHITELIST=/usr/bin/whatis
-SCRIPTWHITELIST=/usr/bin/whatis
-SCRIPTWHITELIST=/usr/bin/ldd
-SCRIPTWHITELIST=/usr/bin/groups
-SCRIPTWHITELIST=/sbin/ifup
-SCRIPTWHITELIST=/sbin/ifdown
-ALLOWDEVFILE=/dev/.udev/uevent_seqnum
-<% end -%>
-<% if scope.lookupvar('::osfamily') == 'Debian' then -%>
-ALLOWHIDDENFILE=/dev/.blkid.tab
-ALLOWHIDDENFILE="/dev/.initramfs"
-ALLOWHIDDENDIR=/etc/.java
-ALLOWHIDDENDIR=/dev/.mdadm
-ALLOWHIDDENDIR=/dev/.udev
-ALLOWDEVFILE=/dev/.udev/uevent_seqnum
-ALLOWDEVFILE=/dev/.blkid.tab
-ALLOWDEVFILE=/dev/.initramfs
-<% end -%>
-<% if scope.lookupvar('::osfamily') == 'Gentoo' then -%>
-SCRIPTWHITELIST=/usr/bin/ldd
-SCRIPTWHITELIST=/usr/bin/lwp-request
-SCRIPTWHITELIST=/bin/egrep
-SCRIPTWHITELIST=/bin/fgrep
-ALLOWHIDDENDIR=/etc/.java
-ALLOWHIDDENDIR=/dev/.mdadm
-ALLOWHIDDENDIR=/dev/.udev
-ALLOWDEVFILE=/dev/shm/ShM.*
+<%- @allow_parameters.each_pair do |type, data_path| -%>
+<%= type %>=<%= data_path %>
 <% end -%>
 
 # Legacy settings
@@ -1562,7 +1532,3 @@ ALLOWDEVFILE=/dev/shm/ShM.*
 #ALLOWDEVFILE=/dev/.SRC-unix*
 #ALLOWDEVFILE=/dev/.mdadm*
 #ALLOWDEVFILE=/dev/.systemd*
-
-<%- @allow_parameters.each_pair do |type, data_path| -%>
-<%= type %>=<%= data_path %>
-<%- end -%>
