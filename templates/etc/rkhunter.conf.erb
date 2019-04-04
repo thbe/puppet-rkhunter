@@ -1427,8 +1427,6 @@ RTKT_FILE_WHITELIST=/var/log/pki/pki-tomcat/kra/system
 
 INSTALLDIR="/usr"
 
-
-
 ###########################
 ###   Custom settings   ###
 ###########################
@@ -1476,8 +1474,12 @@ ALLOWDEVFILE=/dev/shm/SDBTech-KSS-SHM-*
 <% end -%>
 
 # Static rules
-<%- @allow_parameters.each_pair do |type, data_path| -%>
-<%= type %>=<%= data_path %>
+<% if !@allow_parameters.empty? -%>
+<% @allow_parameters.sort_by {|key, value| key}.each do |key,value| -%>
+<% value.each do |line| -%>
+<%= key %>=<%= line %>
+<% end -%>
+<% end -%>
 <% end -%>
 
 # Legacy settings

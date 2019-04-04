@@ -82,7 +82,8 @@ class rkhunter (
   $ssh_prot_v1          = $rkhunter::params::ssh_prot_v1,
   $web_cmd              = $rkhunter::params::web_cmd,
   $disable_tests        = $rkhunter::params::disable_tests,
-  $cron_daily_run       = $rkhunter::params::cron_daily_run
+  $cron_daily_run       = $rkhunter::params::cron_daily_run,
+  $cron_db_update       = $rkhunter::params::cron_db_update
 ) inherits rkhunter::params {
 
   # Start workflow

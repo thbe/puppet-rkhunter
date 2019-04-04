@@ -104,5 +104,6 @@ class rkhunter::params {
   $web_cmd                               = 'unset'
   $disable_tests                         = ['suspscan', 'hidden_procs', 'deleted_files', 'packet_cap_apps', 'apps']
   $cron_daily_run                        = 'y'
+  $cron_db_update                        = 'y'
 
 }
