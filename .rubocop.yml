@@ -283,7 +283,7 @@ Layout/EmptyLineBetweenDefs:
 Layout/IndentFirstArrayElement:
   Enabled: false
 
-Layout/IndentHash:
+Layout/IndentFirstHashElement:
   Enabled: false
 
 Layout/IndentationConsistency:
