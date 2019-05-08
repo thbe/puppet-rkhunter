@@ -280,7 +280,7 @@ Style/EachWithObject:
 Layout/EmptyLineBetweenDefs:
   Enabled: false
 
-Layout/IndentArray:
+Layout/IndentFirstArrayElement:
   Enabled: false
 
 Layout/IndentHash:
