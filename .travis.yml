@@ -27,11 +27,19 @@ matrix:
     stage: test
   - rvm: default
     bundler_args: ''
-    env: BEAKER_set=debian-8-x64 BEAKER_debug=1 PUPPET_INSTALL_TYPE=agent CHECK=beaker
+    env: BEAKER_set=centos7-64 BEAKER_debug=1 CHECK=beaker
     stage: acceptance
   - rvm: default
     bundler_args: ''
-    env: BEAKER_set=centos-7-x64 BEAKER_debug=1 PUPPET_INSTALL_TYPE=agent CHECK=beaker
+    env: BEAKER_set=debian9-64 BEAKER_debug=1 CHECK=beaker
+    stage: acceptance
+  - rvm: default
+    bundler_args: ''
+    env: BEAKER_set=debian10-64 BEAKER_debug=1 CHECK=beaker
+    stage: acceptance
+  - rvm: default
+    bundler_args: ''
+    env: BEAKER_set=ubuntu1810-64 BEAKER_debug=1 CHECK=beaker
     stage: acceptance
   - rvm: default
     env: PUPPET_VERSION="~> 5.0" DEPLOY_TO_FORGE=yes
