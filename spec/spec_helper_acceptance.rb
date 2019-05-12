@@ -1,25 +1,24 @@
-require 'beaker-rspec/spec_helper'
-require 'beaker-rspec/helpers/serverspec'
-require 'beaker/puppet_install_helper'
+require 'beaker-rspec'
 
-#run_puppet_install_helper unless ENV['BEAKER_provision'] == 'no'
-run_puppet_install_helper
+logger.error("LOADED MYYYYYYYYYY Spec Acceptance Helper")
+
+# Install Puppet on all hosts
+install_puppet_on(hosts, options)
 
 RSpec.configure do |c|
-  # Project root
-  proj_root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
+  module_root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
 
-  # Readable test descriptions
   c.formatter = :documentation
 
-  # Configure all nodes in nodeset
   c.before :suite do
-    # Install module and dependencies
-    puppet_module_install(:source => proj_root, :module_name => 'rkhunter')
+    # Install module to all hosts
     hosts.each do |host|
-      ['puppetlabs-stdlib'].each do |mod|
-        on host, puppet('module', 'install', mod), { :acceptable_exit_codes => [0,1] }
-      end
+      install_dev_puppet_module_on(host, :source => module_root, :module_name => 'rkhunter',
+          :target_module_path => '/etc/puppet/modules')
+      # Install dependencies
+      on(host, puppet('module', 'install', 'puppetlabs-stdlib'))
+
+      # Add more setup code as needed
     end
   end
 end
