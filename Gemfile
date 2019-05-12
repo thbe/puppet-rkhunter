@@ -37,7 +37,7 @@ end
 
 group :acceptance do
   gem 'beaker'
-  gem 'beaker-rspec'
   gem 'beaker-hiera'
   gem 'beaker-puppet_install_helper'
+  gem 'beaker-rspec'
 end
