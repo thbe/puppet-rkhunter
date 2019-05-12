@@ -1,3 +1,6 @@
+# NOTE: the require must match the name of the helper file created above.
+#   If you changed the name there, you'll have to change it here.
+#   You can verify this is correct when you see the log statement from the helper.
 require 'spec_helper_acceptance'
 
 describe 'rkhunter' do
@@ -22,13 +25,14 @@ class { 'rkhunter':
 CLASSPARAMETER
   }
 
-  it 'should apply without errors' do
-    apply_manifest(manifest, :catch_failures => true)
+  it 'should run without errors' do
+    result = apply_manifest(manifest, :catch_failures => true)
+    expect(@result.exit_code).to eq 2
   end
 
-  it 'should apply a second time without changes' do
-    @result = apply_manifest(manifest)
-    expect(@result.exit_code).to be_zero
+  it 'should run a second time without changes' do
+    result = apply_manifest(manifest, :catch_failures => true)
+    expect(@result.exit_code).to eq 0
   end
 
   describe file('/etc/rkhunter.conf') do

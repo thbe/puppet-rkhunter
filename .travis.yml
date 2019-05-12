@@ -27,11 +27,7 @@ matrix:
     stage: test
   - rvm: default
     bundler_args: ''
-    env: BEAKER_set=centos7-64 BEAKER_debug=1 CHECK=beaker
-    stage: acceptance
-  - rvm: default
-    bundler_args: ''
-    env: BEAKER_set=debian9-64 BEAKER_debug=1 CHECK=beaker
+    env: BEAKER_set=default BEAKER_debug=1 CHECK=beaker
     stage: acceptance
   - rvm: default
     bundler_args: ''

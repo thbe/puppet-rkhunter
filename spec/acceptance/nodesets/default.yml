@@ -1,0 +1,16 @@
+---
+HOSTS:
+  centos7-64-1:
+    image: centos:7
+    platform: el-7-x86_64
+    packaging_platform: el-7-x86_64
+    hypervisor: docker
+    docker_image_commands:
+    - cp /bin/true /sbin/agetty
+    - yum install -y crontabs initscripts iproute openssl sysvinit-tools tar wget which ss
+    docker_cmd:
+    - "/sbin/init"
+    docker_preserve_image: true
+CONFIG:
+  type: foss
+  log_level: debug
