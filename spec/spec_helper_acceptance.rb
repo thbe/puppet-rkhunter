@@ -6,11 +6,6 @@ logger.error("LOADED MYYYYYYYYYY Spec Acceptance Helper")
 install_puppet_on(hosts, options)
 
 RSpec.configure do |c|
-  #default option values
-  defaults = {
-    :nodeset => 'centos7-64',
-  }
-
   module_root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
 
   c.formatter = :documentation
