@@ -1438,8 +1438,7 @@ INSTALLDIR="/usr"
 ###########################
 
 # Overwrite standard settings
-BINDIR=/bin /usr/bin /sbin /usr/sbin
-BINDIR=+/usr/local/bin +/usr/local/sbin
+BINDIR=/usr/bin /usr/sbin /usr/local/bin /usr/local/sbin
 <% if scope.lookupvar('rkhunter::enable_warning_email') then -%>
 MAIL-ON-WARNING=<%= scope.lookupvar('rkhunter::warning_email') %>
 <% else %>
