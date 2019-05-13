@@ -1,4 +1,9 @@
+require 'beaker-puppet'
+require 'puppet'
 require 'beaker-rspec'
+require 'beaker/puppet_install_helper'
+require 'beaker/testmode_switcher'
+require 'beaker/testmode_switcher/dsl'
 
 logger.error("LOADED MYYYYYYYYYY Spec Acceptance Helper")
 
