@@ -1,7 +1,6 @@
 source ENV['GEM_SOURCE'] || "https://rubygems.org"
 
 group :test do
-  gem 'beaker-hostgenerator'
   gem 'coveralls'
   gem 'facter'
   gem 'json_pure'
@@ -39,6 +38,9 @@ group :acceptance do
   gem 'beaker'
   gem 'beaker-docker'
   gem 'beaker-hiera'
+  gem 'beaker-hostgenerator'
+  gem 'beaker-puppet'
   gem 'beaker-puppet_install_helper'
   gem 'beaker-rspec'
+  gem 'beaker-testmode_switcher'
 end
