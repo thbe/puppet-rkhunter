@@ -1,58 +1,61 @@
-sudo: required
-dist: trusty
-services: docker
 language: ruby
+dist: xenial
+services: docker
 cache: bundler
-bundler_args: "--without system_tests"
+
+notifications:
+  email: project@bendler-net.de
+
 before_install:
-- rm Gemfile.lock || true
-- gem update --system
-- gem update bundler
-- gem --version
-- bundle --version
+  - rm Gemfile.lock || true
+  - gem update --system
+  - gem update bundler
+  - gem --version
+  - bundle --version
+
+branches:
+  only:
+    - master
+    - "/^v\\d/"
+
 stages:
-- test
-- acceptance
-- deploy
+  - name: test
+  - name: acceptance
+  - name: deploy
+    if: branch = "/^v\\d/"
+    deploy:
+      provider: puppetforge
+      user: thbe
+      password:
+        secure: gfdVXZYvGgcz3ylYlXQLmFnJVJlLjAmwM3ehN37+e6QxmWxq4ObtVZKSCGfvw3xuNYRolKjNfZs6rcPKo0jg+zAKbgckAZFo14YyNdRPTEIr5LMNLScu3wiQSYGaZ8Wo+Ednluz3uU6CNg+3bm1GeaS7uxLM8vCNxqGFQHecgS7FuNevmVB6J5cq0G+eZ9SSRDkVkv+ex/ffWWLJKSa8AK4L0UD6mWTK4l+smeJ6PElqlpSzhYsyJY9BRR8+y6oOfjm5gAZyX5BNG2ocrjva5lxdzIDNzqfsISj4+gUkltcL//9gRN7xG5nvK5uemRKYTXgpNTfXDcl7+br8xTSy9tllWe0e3Iya9CZlPPJD6VWuPShBVlrQ5yIjIPUzQv7Ls2q8SqtHnl2S8Wum6IN1Mr+YAKvMMEnEPKVmlWmE9EWTOZHjs9P6S98P0c632T1BCJzv1xNnhWfZOF9wM+zD/k2ZIQStmV85ufyxEqzNCJ+UO6jtgivnf9CP0kx4jSUqGv3FdFyWqL0CbCUkrvRXWHu5PbKsEP/pNTdkdsPNJ79fU9JZ4Azakpucsy8vdRBRgmgfxkLJ2z68NOI0LVbe5iWgDIqHRFbx20eS2mf5cxIswtzI3uAfngC648JbWmud6VdBEBY01TCu7454LL+Kj/NaTl0ZMT63dy82v3rvQvw=
+    on:
+      tags: true
+    install: skip
+    script: skip
+    after_success: skip
+
 script:
-- bundle exec rake $CHECK
+  - bundler install && bundler update
+  - bundle exec rake $CHECK
+
 matrix:
   fast_finish: true
   include:
-  - rvm: 2.3.1
-    env: PUPPET_VERSION="~> 4.0" CHECK=test
-    stage: test
-  - rvm: default
-    env: PUPPET_VERSION="~> 5.0" CHECK=test
-    stage: test
-  - rvm: default
-    bundler_args: ''
-    env: BEAKER_set=default BEAKER_debug=1 CHECK=beaker
-    stage: acceptance
-  - rvm: default
-    bundler_args: ''
-    env: BEAKER_set=debian10-64 BEAKER_debug=1 CHECK=beaker
-    stage: acceptance
-  - rvm: default
-    bundler_args: ''
-    env: BEAKER_set=ubuntu1810-64 BEAKER_debug=1 CHECK=beaker
-    stage: acceptance
-  - rvm: default
-    env: PUPPET_VERSION="~> 5.0" DEPLOY_TO_FORGE=yes
-    stage: deploy
-branches:
-  only:
-  - master
-  - "/^v\\d/"
-notifications:
-  email:
-  - project@bendler-net.de
-deploy:
-  provider: puppetforge
-  user: thbe
-  password:
-    secure: gfdVXZYvGgcz3ylYlXQLmFnJVJlLjAmwM3ehN37+e6QxmWxq4ObtVZKSCGfvw3xuNYRolKjNfZs6rcPKo0jg+zAKbgckAZFo14YyNdRPTEIr5LMNLScu3wiQSYGaZ8Wo+Ednluz3uU6CNg+3bm1GeaS7uxLM8vCNxqGFQHecgS7FuNevmVB6J5cq0G+eZ9SSRDkVkv+ex/ffWWLJKSa8AK4L0UD6mWTK4l+smeJ6PElqlpSzhYsyJY9BRR8+y6oOfjm5gAZyX5BNG2ocrjva5lxdzIDNzqfsISj4+gUkltcL//9gRN7xG5nvK5uemRKYTXgpNTfXDcl7+br8xTSy9tllWe0e3Iya9CZlPPJD6VWuPShBVlrQ5yIjIPUzQv7Ls2q8SqtHnl2S8Wum6IN1Mr+YAKvMMEnEPKVmlWmE9EWTOZHjs9P6S98P0c632T1BCJzv1xNnhWfZOF9wM+zD/k2ZIQStmV85ufyxEqzNCJ+UO6jtgivnf9CP0kx4jSUqGv3FdFyWqL0CbCUkrvRXWHu5PbKsEP/pNTdkdsPNJ79fU9JZ4Azakpucsy8vdRBRgmgfxkLJ2z68NOI0LVbe5iWgDIqHRFbx20eS2mf5cxIswtzI3uAfngC648JbWmud6VdBEBY01TCu7454LL+Kj/NaTl0ZMT63dy82v3rvQvw=
-  on:
-    tags: true
-    all_branches: true
-    condition: "$DEPLOY_TO_FORGE = yes"
+    - rvm: 2.3.1
+      env: PUPPET_VERSION="~> 4.0" CHECK=test
+      stage: test
+    - rvm: default
+      env: PUPPET_VERSION="~> 5.0" CHECK=test
+      stage: test
+    - rvm: default
+      env: BEAKER_set=default BEAKER_debug=1 CHECK=beaker
+      stage: acceptance
+    - rvm: default
+      env: BEAKER_set=debian10-64 BEAKER_debug=1 CHECK=beaker
+      stage: acceptance
+    - rvm: default
+      env: BEAKER_set=ubuntu1810-64 BEAKER_debug=1 CHECK=beaker
+      stage: acceptance
+    - rvm: default
+      env: PUPPET_VERSION="~> 5.0"
+      stage: deploy
