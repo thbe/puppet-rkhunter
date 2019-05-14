@@ -363,7 +363,7 @@ ALLOW_SSH_PROT_V1=2
 #
 ENABLE_TESTS=ALL
 #DISABLE_TESTS=suspscan hidden_ports hidden_procs deleted_files packet_cap_apps apps
-DISABLE_TESTS=suspscan hidden_ports deleted_files packet_cap_apps apps ipc_shared_mem
+#DISABLE_TESTS=suspscan hidden_ports deleted_files packet_cap_apps apps ipc_shared_mem
 
 #
 # The HASH_CMD option can be used to specify the command to use for the file
@@ -611,8 +611,8 @@ SCRIPTWHITELIST=/usr/bin/whatis
 SCRIPTWHITELIST=/usr/bin/ldd
 SCRIPTWHITELIST=/usr/bin/groups
 SCRIPTWHITELIST=/usr/bin/GET
-SCRIPTWHITELIST=/sbin/ifup
-SCRIPTWHITELIST=/sbin/ifdown
+#SCRIPTWHITELIST=/sbin/ifup
+#SCRIPTWHITELIST=/sbin/ifdown
 
 #
 # Allow the specified file to have the immutable attribute set.
@@ -1436,46 +1436,46 @@ INSTALLDIR="/usr"
 ###########################
 
 # Overwrite standard settings
-<% if scope.lookupvar('rkhunter::enable_warning_email') then -%>
-MAIL-ON-WARNING=<%= scope.lookupvar('rkhunter::warning_email') %>
+<% if scope['rkhunter::enable_warning_email'] then -%>
+MAIL-ON-WARNING=<%= scope['rkhunter::warning_email'] %>
 <% else %>
 MAIL-ON-WARNING=
 <% end -%>
-SCRIPTDIR=<%= scope.lookupvar('rkhunter::params::config_rkhunter_script_directory') %>
-LOGFILE=<%= scope.lookupvar('rkhunter::params::log_file') %>
-ALLOW_SSH_ROOT_USER=<%= scope.lookupvar('rkhunter::sshd_root') %>
-DISABLE_TESTS=<%= scope.lookupvar('rkhunter::disable_tests').join(' ') %>
-PKGMGR=<%= scope.lookupvar('rkhunter::params::package_manager') %>
-<% if scope.lookupvar('rkhunter::remote_syslog') then %>
+SCRIPTDIR=<%= scope['rkhunter::params::config_rkhunter_script_directory'] %>
+LOGFILE=<%= scope['rkhunter::params::log_file'] %>
+ALLOW_SSH_ROOT_USER=<%= scope['rkhunter::sshd_root'] %>
+DISABLE_TESTS=<%= scope['rkhunter::disable_tests'].join(' ') %>
+PKGMGR=<%= scope['rkhunter::params::package_manager'] %>
+<% if scope['rkhunter::remote_syslog'] then %>
 ALLOW_SYSLOG_REMOTE_LOGGING=1
 <% end %>
-<% if scope.lookupvar('rkhunter::web_cmd') != "unset" -%>
+<% if scope['rkhunter::web_cmd'] != "unset" -%>
 # Contrary to what the examples show it appears that the WEB_CMD var should be without quotes
-WEB_CMD=<%= scope.lookupvar('rkhunter::web_cmd') %>
+WEB_CMD=<%= scope['rkhunter::web_cmd'] %>
 <% end -%>
 
 # Host specific rules added by Puppet
-<% if scope.lookupvar('rkhunter::tftp') then -%>
+<% if scope['rkhunter::tftp'] then -%>
 XINETD_ALLOWED_SVC=/etc/xinetd.d/tftp
 <% end -%>
-<% if scope.lookupvar('rkhunter::check_mk') then -%>
+<% if scope['rkhunter::check_mk'] then -%>
 XINETD_ALLOWED_SVC=/etc/xinetd.d/check_mk
 <% end -%>
-<% if scope.lookupvar('rkhunter::oracle_xe') then -%>
+<% if scope['rkhunter::oracle_xe'] then -%>
 ALLOWDEVFILE=/dev/shm/ora_XE_*
 <% end -%>
-<% if scope.lookupvar('rkhunter::sap_igs') then -%>
+<% if scope['rkhunter::sap_igs'] then -%>
 PORT_WHITELIST=TCP:47107
 <% end -%>
-<% if scope.lookupvar('rkhunter::sap_icm') then -%>
+<% if scope['rkhunter::sap_icm'] then -%>
 PORT_WHITELIST=TCP:25000
 <% end -%>
-<% if scope.lookupvar('rkhunter::sap_db') then -%>
+<% if scope['rkhunter::sap_db'] then -%>
 ALLOWDEVFILE=/dev/shm/SDBTech-KSS-SHM-*
 <% end -%>
 
-# Static rules
-<% if scope.lookupvar('::osfamily') == 'RedHat' then -%>
+# Static rules based on the operating system family
+<% if @osfamily == 'RedHat' then -%>
 EXISTWHITELIST=/var/log/pki-ca/system
 EXISTWHITELIST=/var/log/pki/pki-tomcat/ca/system
 EXISTWHITELIST=/usr/bin/GET
@@ -1487,7 +1487,7 @@ SCRIPTWHITELIST=/sbin/ifup
 SCRIPTWHITELIST=/sbin/ifdown
 ALLOWDEVFILE=/dev/.udev/uevent_seqnum
 <% end -%>
-<% if scope.lookupvar('::osfamily') == 'Debian' then -%>
+<% if @osfamily == 'Debian' then -%>
 ALLOWHIDDENFILE=/dev/.blkid.tab
 ALLOWHIDDENFILE="/dev/.initramfs"
 ALLOWHIDDENDIR=/etc/.java
@@ -1498,7 +1498,7 @@ ALLOWDEVFILE=/dev/.blkid.tab
 ALLOWDEVFILE=/dev/.initramfs
 ALLOWDEVFILE=/dev/.udev/rules.d/root.rules
 <% end -%>
-<% if scope.lookupvar('::osfamily') == 'Gentoo' then -%>
+<% if @osfamily == 'Gentoo' then -%>
 SCRIPTWHITELIST=/usr/bin/ldd
 SCRIPTWHITELIST=/usr/bin/lwp-request
 SCRIPTWHITELIST=/bin/egrep
