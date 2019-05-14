@@ -5,8 +5,6 @@ require 'beaker/puppet_install_helper'
 require 'beaker/testmode_switcher'
 require 'beaker/testmode_switcher/dsl'
 
-logger.error("LOADED MYYYYYYYYYY Spec Acceptance Helper")
-
 # Install Puppet on all hosts
 install_puppet_agent_on(hosts, options)
 
