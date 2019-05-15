@@ -31,14 +31,7 @@ script:
 jobs:
   include:
     - stage: build
-      rvm: 2.3.1
-      env: PUPPET_VERSION="~> 4.0"
-      install: bundler install && bundler update
-      script: bundle exec rake test
-      after_success: skip
-
-    - stage: build
-      env: PUPPET_VERSION="~> 5.0"
+      env: PUPPET_VERSION="~> 6.0"
       install: bundler install && bundler update
       script: bundle exec rake test
       after_success: skip
