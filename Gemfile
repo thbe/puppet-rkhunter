@@ -35,7 +35,7 @@ group :development do
 end
 
 group :acceptance do
-  gem 'beaker'
+  gem 'beaker', '~>4.0'
   gem 'beaker-docker'
   gem 'beaker-hiera'
   gem 'beaker-hostgenerator'
