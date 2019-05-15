@@ -7,9 +7,7 @@ require 'beaker/testmode_switcher'
 require 'beaker/testmode_switcher/dsl'
 
 # Install Puppet on all hosts
-#install_puppet_agent_on(hosts, options)
-
-run_puppet_install_helper
+install_puppet_agent_on(hosts, options)
 configure_type_defaults_on(hosts)
 
 RSpec.configure do |c|
