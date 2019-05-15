@@ -11,7 +11,7 @@ install_puppet_agent_on(hosts, options)
 configure_type_defaults_on(hosts)
 
 RSpec.configure do |c|
-  #module_root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
+  module_root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
   
   # Readable test descriptions
   c.formatter = :documentation
