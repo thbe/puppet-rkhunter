@@ -42,13 +42,19 @@ jobs:
       after_success: skip
 
     - stage: test
+      env: BEAKER_set=redhat8-64 BEAKER_debug=1
+      install: bundler install && bundler update
+      script: bundle exec rake beaker
+      after_success: skip
+
+    - stage: test
       env: BEAKER_set=debian9-64 BEAKER_debug=1
       install: bundler install && bundler update
       script: bundle exec rake beaker
       after_success: skip
 
     - stage: test
-      env: BEAKER_set=ubuntu1810-64 BEAKER_debug=1
+      env: BEAKER_set=ubuntu1804-64 BEAKER_debug=1
       install: bundler install && bundler update
       script: bundle exec rake beaker
       after_success: skip

@@ -1,0 +1,14 @@
+---
+HOSTS:
+  redhat8-64-1:
+    docker_cmd:
+    - "/sbin/init"
+    image: redhat:8
+    platform: el-8-x86_64
+    packaging_platform: el-8-x86_64
+    hypervisor: docker
+    roles:
+    - agent
+CONFIG:
+  type: foss
+  masterless: true

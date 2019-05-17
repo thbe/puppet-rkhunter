@@ -40,7 +40,7 @@ group :acceptance do
   gem 'beaker-hiera'
   gem 'beaker-hostgenerator'
   gem 'beaker-module_install_helper'
-  gem 'beaker-puppet', :git => 'https://github.com/puppetlabs/beaker.git'
+  gem 'beaker-puppet', :git => 'https://github.com/puppetlabs/beaker-puppet.git'
   gem 'beaker-puppet_install_helper'
   gem 'beaker-rspec'
   gem 'beaker-testmode_switcher'
