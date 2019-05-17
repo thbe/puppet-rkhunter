@@ -1,7 +1,5 @@
 require 'beaker-puppet'
-require 'puppet'
 require 'beaker-rspec'
-require 'beaker/puppet_install_helper'
 require 'beaker/module_install_helper'
 require 'beaker/testmode_switcher'
 require 'beaker/testmode_switcher/dsl'
@@ -12,7 +10,7 @@ configure_type_defaults_on(hosts)
 
 RSpec.configure do |c|
   module_root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
-  
+
   # Readable test descriptions
   c.formatter = :documentation
 
@@ -26,8 +24,4 @@ RSpec.configure do |c|
       # on(host, puppet('module', 'install', 'puppetlabs-stdlib'))
     end
   end
-end
-
-def return_puppet_version
-  (on default, puppet('--version')).output.chomp
 end
