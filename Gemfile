@@ -34,8 +34,14 @@ group :development do
   gem 'travis-lint'
 end
 
-group :system_tests do
-  gem 'beaker', '~> 3.28'
+group :acceptance do
+  gem 'beaker', '~>4.0'
+  gem 'beaker-docker'
+  gem 'beaker-hiera'
+  gem 'beaker-hostgenerator'
+  gem 'beaker-module_install_helper'
+  gem 'beaker-puppet'
   gem 'beaker-puppet_install_helper'
   gem 'beaker-rspec'
+  gem 'beaker-testmode_switcher'
 end
