@@ -1,7 +1,5 @@
 require 'beaker-puppet'
-require 'puppet'
 require 'beaker-rspec'
-require 'beaker/puppet_install_helper'
 require 'beaker/module_install_helper'
 require 'beaker/testmode_switcher'
 require 'beaker/testmode_switcher/dsl'
@@ -26,8 +24,4 @@ RSpec.configure do |c|
       # on(host, puppet('module', 'install', 'puppetlabs-stdlib'))
     end
   end
-end
-
-def return_puppet_version
-  (on default, puppet('--version')).output.chomp
 end
