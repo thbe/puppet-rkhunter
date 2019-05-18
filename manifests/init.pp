@@ -4,63 +4,34 @@
 #
 # === Parameters
 #
-# Document parameters here.
-#  tftp = boolean, should tftp check be enabled or disabled
-#  check_mk = boolean, should check_mk check be enabled or disabled
-#  icman = boolean, should icman network check be enabled or disabled
-#
-# [*root_email*]
-#   Set the root email address that get notifications if events occur
-#
-# [*warning_email*]
-#   Set the email address that gets notifications if warnings occur
-#
-# [*enable_warning_email*]
-#   Set to true to send emails on warnings (default: false)
-#
-# [*remote_syslog*]
-#   Set to true when remote syslog is enabled
-#
-# [*tftp*]
-#   Ignore check errors forced by tftp
-#
-# [*check_mk*]
-#   Ignore check errors forced by check_mk
-#
-# [*oracle_xe*]
-#   Ignore check errors forced by Oracle XE
-#
-# [*sap_igs*]
-#   Ignore check errors forced by SAP IGS
-#
-# [*sap_icm*]
-#   Ignore check errors forced by SAP ICM
-#
-# [*sap_db*]
-#   Ignore check errors forced by SAPDB/MaxDB
-#
-# [*sshd_root*]
-#   Surpress warning if root login is permit.
-#   Should be the same as PermitRootLogin in sshd_config
-#
-# [*web_cmd*]
-#   Command used to retrieve files from the internet (ie: while
-#   running with --update)
-#
-# [*cron_daily_run*]
-#   Enable/Disable Cron daily runs
-#
-# [*cron_db_update*]
-#   Enable/Disable Cron database update runs
+# @param tftp boolean, should tftp check be enabled or disabled
+# @param check_mk boolean, should check_mk check be enabled or disabled
+# @param root_email Set the root email address that get notifications if events occur
+# @param warning_email Set the email address that gets notifications if warnings occur
+# @param enable_warning_email Set to true to send emails on warnings (default: false)
+# @param remote_syslog Set to true when remote syslog is enabled
+# @param tftp Ignore check errors forced by tftp
+# @param check_mk Ignore check errors forced by check_mk
+# @param oracle_xe Ignore check errors forced by Oracle XE
+# @param sap_igs Ignore check errors forced by SAP IGS
+# @param sap_icm Ignore check errors forced by SAP ICM
+# @param sap_db Ignore check errors forced by SAPDB/MaxDB
+# @param sshd_root Surpress warning if root login is permit. Should be the same as PermitRootLogin in sshd_config
+# @param ssh_prot_v1 Define the minimum ssh protocol version, should be 2
+# @param web_cmd Command used to retrieve files from the internet (ie: while running with --update)
+# @param disable_tests List of test that should not be performed
+# @param cron_daily_run Enable/Disable Cron daily runs
+# @param cron_db_update Enable/Disable Cron database update runs
 #
 # === Variables
 #
 # === Examples
 #
-#  class { '::rkhunter':
-#    tftp => true,
-#    sshd_root => 'without-password'
-#  }
+# @example Declaring the class
+#   class { '::rkhunter':
+#     tftp => true,
+#     sshd_root => 'without-password'
+#   }
 #
 # === Authors
 #

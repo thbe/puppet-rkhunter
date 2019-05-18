@@ -5,8 +5,8 @@
 
 **Classes**
 
-* [`rkhunter`](#rkhunter): == Class: rkhunter  This module manages rkhunter  === Parameters  Document parameters here.  tftp = boolean, should tftp check be enabled or 
-* [`rkhunter::config`](#rkhunterconfig): Class: rkhunter::config  This module contain the configuration for rkhunter  Parameters:   This module has no parameters  Actions:      This 
+* [`rkhunter`](#rkhunter): == Class: rkhunter  This module manages rkhunter  === Parameters  === Variables  === Examples  === Authors  Author Thomas Bendler <project@be
+* [`rkhunter::config`](#rkhunterconfig): Class: rkhunter::config  This module contain the configuration for rkhunter  === Parameters
 * [`rkhunter::package`](#rkhunterpackage): Class: rkhunter::package  This module contain the package configuration for rkhunter  Parameters:  Actions:  Requires:  Sample Usage:
 * [`rkhunter::params`](#rkhunterparams): Class: rkhunter::params  This module contain the parameters for rkhunter  Parameters:   This module has no parameters  Actions:      This mod
 * [`rkhunter::service`](#rkhunterservice): Class: rkhunter::service  This module contain the service configuration for rkhunter  Parameters:   This module has no parameters  Actions:  
@@ -21,63 +21,9 @@ This module manages rkhunter
 
 === Parameters
 
-Document parameters here.
- tftp = boolean, should tftp check be enabled or disabled
- check_mk = boolean, should check_mk check be enabled or disabled
- icman = boolean, should icman network check be enabled or disabled
-
-[*root_email*]
-  Set the root email address that get notifications if events occur
-
-[*warning_email*]
-  Set the email address that gets notifications if warnings occur
-
-[*enable_warning_email*]
-  Set to true to send emails on warnings (default: false)
-
-[*remote_syslog*]
-  Set to true when remote syslog is enabled
-
-[*tftp*]
-  Ignore check errors forced by tftp
-
-[*check_mk*]
-  Ignore check errors forced by check_mk
-
-[*oracle_xe*]
-  Ignore check errors forced by Oracle XE
-
-[*sap_igs*]
-  Ignore check errors forced by SAP IGS
-
-[*sap_icm*]
-  Ignore check errors forced by SAP ICM
-
-[*sap_db*]
-  Ignore check errors forced by SAPDB/MaxDB
-
-[*sshd_root*]
-  Surpress warning if root login is permit.
-  Should be the same as PermitRootLogin in sshd_config
-
-[*web_cmd*]
-  Command used to retrieve files from the internet (ie: while
-  running with --update)
-
-[*cron_daily_run*]
-  Enable/Disable Cron daily runs
-
-[*cron_db_update*]
-  Enable/Disable Cron database update runs
-
 === Variables
 
 === Examples
-
- class { '::rkhunter':
-   tftp => true,
-   sshd_root => 'without-password'
- }
 
 === Authors
 
@@ -87,47 +33,26 @@ Author Thomas Bendler <project@bendler-net.de>
 
 Copyright 2019 Thomas Bendler
 
+#### Examples
+
+##### Declaring the class
+
+```puppet
+class { '::rkhunter':
+  tftp => true,
+  sshd_root => 'without-password'
+}
+```
+
 #### Parameters
 
 The following parameters are available in the `rkhunter` class.
-
-##### `root_email`
-
-Data type: `Any`
-
-
-
-Default value: $rkhunter::params::root_email
-
-##### `warning_email`
-
-Data type: `Any`
-
-
-
-Default value: $rkhunter::params::warning_email
-
-##### `enable_warning_email`
-
-Data type: `Any`
-
-
-
-Default value: $rkhunter::params::enable_warning_email
-
-##### `remote_syslog`
-
-Data type: `Any`
-
-
-
-Default value: $rkhunter::params::remote_syslog
 
 ##### `tftp`
 
 Data type: `Any`
 
-
+boolean, should tftp check be enabled or disabled
 
 Default value: $rkhunter::params::tftp
 
@@ -135,7 +60,51 @@ Default value: $rkhunter::params::tftp
 
 Data type: `Any`
 
+boolean, should check_mk check be enabled or disabled
 
+Default value: $rkhunter::params::check_mk
+
+##### `root_email`
+
+Data type: `Any`
+
+Set the root email address that get notifications if events occur
+
+Default value: $rkhunter::params::root_email
+
+##### `warning_email`
+
+Data type: `Any`
+
+Set the email address that gets notifications if warnings occur
+
+Default value: $rkhunter::params::warning_email
+
+##### `enable_warning_email`
+
+Data type: `Any`
+
+Set to true to send emails on warnings (default: false)
+
+Default value: $rkhunter::params::enable_warning_email
+
+##### `remote_syslog`
+
+Data type: `Any`
+
+Set to true when remote syslog is enabled
+
+Default value: $rkhunter::params::remote_syslog
+
+##### `tftp`
+
+Ignore check errors forced by tftp
+
+Default value: $rkhunter::params::tftp
+
+##### `check_mk`
+
+Ignore check errors forced by check_mk
 
 Default value: $rkhunter::params::check_mk
 
@@ -143,7 +112,7 @@ Default value: $rkhunter::params::check_mk
 
 Data type: `Any`
 
-
+Ignore check errors forced by Oracle XE
 
 Default value: $rkhunter::params::oracle_xe
 
@@ -151,7 +120,7 @@ Default value: $rkhunter::params::oracle_xe
 
 Data type: `Any`
 
-
+Ignore check errors forced by SAP IGS
 
 Default value: $rkhunter::params::sap_igs
 
@@ -159,7 +128,7 @@ Default value: $rkhunter::params::sap_igs
 
 Data type: `Any`
 
-
+Ignore check errors forced by SAP ICM
 
 Default value: $rkhunter::params::sap_icm
 
@@ -167,7 +136,7 @@ Default value: $rkhunter::params::sap_icm
 
 Data type: `Any`
 
-
+Ignore check errors forced by SAPDB/MaxDB
 
 Default value: $rkhunter::params::sap_db
 
@@ -175,7 +144,7 @@ Default value: $rkhunter::params::sap_db
 
 Data type: `Any`
 
-
+Surpress warning if root login is permit. Should be the same as PermitRootLogin in sshd_config
 
 Default value: $rkhunter::params::sshd_root
 
@@ -183,7 +152,7 @@ Default value: $rkhunter::params::sshd_root
 
 Data type: `Any`
 
-
+Define the minimum ssh protocol version, should be 2
 
 Default value: $rkhunter::params::ssh_prot_v1
 
@@ -191,7 +160,7 @@ Default value: $rkhunter::params::ssh_prot_v1
 
 Data type: `Any`
 
-
+Command used to retrieve files from the internet (ie: while running with --update)
 
 Default value: $rkhunter::params::web_cmd
 
@@ -199,7 +168,7 @@ Default value: $rkhunter::params::web_cmd
 
 Data type: `Any`
 
-
+List of test that should not be performed
 
 Default value: $rkhunter::params::disable_tests
 
@@ -207,7 +176,7 @@ Default value: $rkhunter::params::disable_tests
 
 Data type: `Any`
 
-
+Enable/Disable Cron daily runs
 
 Default value: $rkhunter::params::cron_daily_run
 
@@ -215,7 +184,7 @@ Default value: $rkhunter::params::cron_daily_run
 
 Data type: `Any`
 
-
+Enable/Disable Cron database update runs
 
 Default value: $rkhunter::params::cron_db_update
 
@@ -225,13 +194,7 @@ Class: rkhunter::config
 
 This module contain the configuration for rkhunter
 
-Parameters:   This module has no parameters
-
-Actions:      This module has no actions
-
-Requires:     This module has no requirements
-
-Sample Usage: include rkhunter::config
+=== Parameters
 
 #### Parameters
 
@@ -241,7 +204,7 @@ The following parameters are available in the `rkhunter::config` class.
 
 Data type: `Any`
 
-
+List of custom parameters
 
 Default value: {}
 

@@ -2,13 +2,9 @@
 #
 # This module contain the configuration for rkhunter
 #
-# Parameters:   This module has no parameters
+# === Parameters
 #
-# Actions:      This module has no actions
-#
-# Requires:     This module has no requirements
-#
-# Sample Usage: include rkhunter::config
+# @param allow_parameters List of custom parameters
 #
 class rkhunter::config (
   $allow_parameters    = {},
