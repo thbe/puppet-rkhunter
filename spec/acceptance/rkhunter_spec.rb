@@ -20,6 +20,7 @@ class { 'rkhunter':
   sshd_root            => 'without-password',
   web_cmd              => 'curl',
   cron_daily_run       => 'y',
+  cron_db_update       => 'y',
   disable_tests        => ['suspscan','hidden_procs','deleted_files','packet_cap_apps','apps'],
 }
 CLASSPARAMETER

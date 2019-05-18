@@ -51,7 +51,7 @@
 #   Enable/Disable Cron daily runs
 #
 # [*cron_db_update*]
-#   Enable/Disable Cron database update
+#   Enable/Disable Cron database update runs
 #
 # === Variables
 #

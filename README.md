@@ -144,6 +144,9 @@ Command used to pull files from the internet (ie: when --update is specified)
 
 Enable/Disable daily Cron runs
 
+#### `cron_db_update`
+Enable/Disable Cron database update runs
+
 ## Limitations
 
 This module has been built on and tested against Puppet 5 and higher.
