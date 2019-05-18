@@ -50,6 +50,9 @@
 # [*cron_daily_run*]
 #   Enable/Disable Cron daily runs
 #
+# [*cron_db_update*]
+#   Enable/Disable Cron database update
+#
 # === Variables
 #
 # === Examples
@@ -65,7 +68,7 @@
 #
 # === Copyright
 #
-# Copyright 2017 Thomas Bendler
+# Copyright 2019 Thomas Bendler
 #
 class rkhunter (
   $root_email           = $rkhunter::params::root_email,
@@ -79,9 +82,11 @@ class rkhunter (
   $sap_icm              = $rkhunter::params::sap_icm,
   $sap_db               = $rkhunter::params::sap_db,
   $sshd_root            = $rkhunter::params::sshd_root,
+  $ssh_prot_v1          = $rkhunter::params::ssh_prot_v1,
   $web_cmd              = $rkhunter::params::web_cmd,
   $disable_tests        = $rkhunter::params::disable_tests,
-  $cron_daily_run       = $rkhunter::params::cron_daily_run
+  $cron_daily_run       = $rkhunter::params::cron_daily_run,
+  $cron_db_update       = $rkhunter::params::cron_db_update
 ) inherits rkhunter::params {
 
   # Start workflow

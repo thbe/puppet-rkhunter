@@ -146,12 +146,13 @@ Enable/Disable daily Cron runs
 
 ## Limitations
 
-This module has been built on and tested against Puppet 3.2 and higher.
+This module has been built on and tested against Puppet 5 and higher.
 
 The module has been tested on:
 
-* RedHat Enterprise Linux 5/6
-* Scientific Linux 5/6
+* CentOS 7
+* Debian 9
+* Ubuntu 18.04
 
 Testing on other platforms has been light and cannot be guaranteed.
 

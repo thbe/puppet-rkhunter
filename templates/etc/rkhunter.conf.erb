@@ -148,6 +148,7 @@
 # of '[rkhunter] Warnings found for ${HOST_NAME}'.
 #
 #MAIL_CMD=mail -s "[rkhunter] Warnings found for ${HOST_NAME}"
+MAIL_CMD=mail -s "[rkhunter] Warnings found for <%= @fqdn %>"
 
 #
 # This option specifies the directory to use for temporary files.
@@ -237,7 +238,7 @@ SCRIPTDIR=/usr/share/rkhunter/scripts
 #
 # The default value is '/var/log/rkhunter.log'.
 #
-LOGFILE=/var/log/rkhunter/rkhunter.log
+#LOGFILE=/var/log/rkhunter/rkhunter.log
 
 #
 # Set this option to '1' if the log file is to be appended to whenever rkhunter
@@ -314,7 +315,6 @@ AUTO_X_DETECT=1
 # The default value is 'no'.
 #
 #ALLOW_SSH_ROOT_USER=no
-ALLOW_SSH_ROOT_USER=unset
 
 #
 # Set this option to '1' to allow the use of the SSH-1 protocol, but note
@@ -329,7 +329,6 @@ ALLOW_SSH_ROOT_USER=unset
 # The default value is '0'.
 #
 #ALLOW_SSH_PROT_V1=0
-ALLOW_SSH_PROT_V1=2
 
 #
 # This setting tells rkhunter the directory containing the SSH configuration
@@ -445,7 +444,6 @@ ENABLE_TESTS=ALL
 # Also see the PKGMGR_NO_VRFY and USE_SUNSUM options.
 #
 #PKGMGR=NONE
-PKGMGR=RPM
 
 #
 # It is possible that a file, which is part of a package, may have been
@@ -1444,6 +1442,7 @@ MAIL-ON-WARNING=
 SCRIPTDIR=<%= scope['rkhunter::params::config_rkhunter_script_directory'] %>
 LOGFILE=<%= scope['rkhunter::params::log_file'] %>
 ALLOW_SSH_ROOT_USER=<%= scope['rkhunter::sshd_root'] %>
+ALLOW_SSH_PROT_V1=<%= scope['rkhunter::ssh_prot_v1'] %>
 DISABLE_TESTS=<%= scope['rkhunter::disable_tests'].join(' ') %>
 PKGMGR=<%= scope['rkhunter::params::package_manager'] %>
 <% if scope['rkhunter::remote_syslog'] then %>
@@ -1475,6 +1474,13 @@ ALLOWDEVFILE=/dev/shm/SDBTech-KSS-SHM-*
 <% end -%>
 
 # Static rules based on the operating system family
+<% if !@allow_parameters.empty? -%>
+<% @allow_parameters.sort_by {|key, value| key}.each do |key,value| -%>
+<% value.each do |line| -%>
+<%= key %>=<%= line %>
+<% end -%>
+<% end -%>
+<% else %>
 <% if @osfamily == 'RedHat' then -%>
 EXISTWHITELIST=/var/log/pki-ca/system
 EXISTWHITELIST=/var/log/pki/pki-tomcat/ca/system
@@ -1507,4 +1513,5 @@ ALLOWHIDDENDIR=/etc/.java
 ALLOWHIDDENDIR=/dev/.mdadm
 ALLOWHIDDENDIR=/dev/.udev
 ALLOWDEVFILE=/dev/shm/ShM.*
+<% end -%>
 <% end -%>

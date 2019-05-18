@@ -10,7 +10,9 @@
 #
 # Sample Usage: include rkhunter::config
 #
-class rkhunter::config {
+class rkhunter::config (
+  $allow_parameters    = {},
+  ) {
 
   file { $rkhunter::params::config_rkhunter_conf:
     ensure  => file,
