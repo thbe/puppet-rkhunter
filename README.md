@@ -81,71 +81,7 @@ class { '::rkhunter':
 
 ## Reference
 
-### Classes
-
-* rkhunter: Main class, includes all the rest.
-* rkhunter::install: Handles the packages.
-* rkhunter::config: Handles the configuration file.
-* rkhunter::service: Handles the database rebuild.
-
-### Parameters
-
-The following parameters are available in the rkhunter module
-
-#### `root_email`
-
-Set the root email address that get notifications if events occur.
-
-#### `warning_email`
-
-Set the email address that gets notifications if warnings occur.
-
-#### `enable_warning_email`
-
-Set to true to send emails on warnings (default: false).
-
-#### `remote_syslog`
-Set to true if remote syslog is used
-
-#### `tftp`
-
-Ignore check errors forced by tftp.
-
-#### `check_mk`
-
-Ignore check errors forced by check_mk.
-
-#### `oracle_xe`
-
-Ignore check errors forced by Oracle XE.
-
-#### `sap_igs`
-
-Ignore check errors forced by SAP IGS.
-
-#### `sap_icm`
-
-Ignore check errors forced by SAP ICM.
-
-#### `sap_db`
-
-Ignore check errors forced by SAPDB/MaxDB.
-
-#### `sshd_root`
-
-Surpress warning if root login is permit.
-Should be the same as PermitRootLogin in sshd_config
-
-#### `web_cmd`
-
-Command used to pull files from the internet (ie: when --update is specified)
-
-#### `cron_daily_run`
-
-Enable/Disable daily Cron runs
-
-#### `cron_db_update`
-Enable/Disable Cron database update runs
+See [https://github.com/thbe/puppet-rkhunter/REFERENCE.md](https://github.com/thbe/puppet-rkhunter/REFERENCE.md)
 
 ## Limitations
 
