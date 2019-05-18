@@ -16,12 +16,12 @@ RSpec.configure do |c|
 
   # Configure all nodes in nodeset
   c.before :suite do
-    # Install module to all hosts
+    # Loop through hosts
     hosts.each do |host|
+      # Install the Puppet module that should be tested
       install_dev_puppet_module_on(host, :source => module_root, :module_name => 'rkhunter')
-      # Install dependencies
+      # Install Puppet module dependencies
       install_module_dependencies_on(hosts)
-      # on(host, puppet('module', 'install', 'puppetlabs-stdlib'))
     end
   end
 end

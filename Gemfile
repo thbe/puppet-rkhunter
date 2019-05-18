@@ -21,6 +21,7 @@ group :test do
   gem 'rspec-puppet'
   gem 'rspec-puppet-facts'
   gem 'rubocop'
+  gem 'rugged'
   gem 'semantic_puppet'
   gem 'simplecov'
   gem 'simplecov-console'
@@ -44,4 +45,8 @@ group :acceptance do
   gem 'beaker-puppet_install_helper'
   gem 'beaker-rspec'
   gem 'beaker-testmode_switcher'
+end
+
+group :documentation do
+  gem 'github_changelog_generator'
 end
