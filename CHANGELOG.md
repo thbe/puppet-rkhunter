@@ -1,6 +1,6 @@
 "# Changelog\n\nAll notable changes to this project will be documented in this file."
 
-## [latest](https://github.com/thbe/puppet-rkhunter/tree/latest) (2019-05-18)
+## [latest](https://github.com/thbe/puppet-rkhunter/tree/latest) (2019-05-19)
 **Closed issues:**
 
 - Yum require : question [\#7](https://github.com/thbe/puppet-rkhunter/issues/7)
