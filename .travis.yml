@@ -21,6 +21,7 @@ branches:
 stages:
   - name: build
   - name: test
+    if: branch = master
 
 script:
   - bundle install && bundle update
@@ -28,7 +29,7 @@ script:
 jobs:
   include:
     - stage: build
-      env: PUPPET_VERSION="~> 6.0"
+      env: PUPPET_VERSION="~> 6.0" DEPLOY_TO_FORGE=yes
       install: bundler install && bundler update
       script: bundle exec rake test
       after_success: skip
@@ -46,7 +47,7 @@ jobs:
       after_success: skip
 
     - stage: test
-      env: BEAKER_set=centos7-64 BEAKER_debug=1 DEPLOY_TO_FORGE=yes
+      env: BEAKER_set=centos7-64 BEAKER_debug=1
       install: bundler install && bundler update
       script: bundle exec rake beaker
       after_success: skip
