@@ -81,7 +81,7 @@ class { '::rkhunter':
 
 ## Reference
 
-See [https://github.com/thbe/puppet-rkhunter/REFERENCE.md](https://github.com/thbe/puppet-rkhunter/REFERENCE.md)
+See [https://github.com/thbe/puppet-rkhunter/blob/master/REFERENCE.md](https://github.com/thbe/puppet-rkhunter/blob/master/REFERENCE.md)
 
 ## Limitations
 
