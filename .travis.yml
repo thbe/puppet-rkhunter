@@ -67,6 +67,6 @@ jobs:
         user: thbe
         password:
           secure: gfdVXZYvGgcz3ylYlXQLmFnJVJlLjAmwM3ehN37+e6QxmWxq4ObtVZKSCGfvw3xuNYRolKjNfZs6rcPKo0jg+zAKbgckAZFo14YyNdRPTEIr5LMNLScu3wiQSYGaZ8Wo+Ednluz3uU6CNg+3bm1GeaS7uxLM8vCNxqGFQHecgS7FuNevmVB6J5cq0G+eZ9SSRDkVkv+ex/ffWWLJKSa8AK4L0UD6mWTK4l+smeJ6PElqlpSzhYsyJY9BRR8+y6oOfjm5gAZyX5BNG2ocrjva5lxdzIDNzqfsISj4+gUkltcL//9gRN7xG5nvK5uemRKYTXgpNTfXDcl7+br8xTSy9tllWe0e3Iya9CZlPPJD6VWuPShBVlrQ5yIjIPUzQv7Ls2q8SqtHnl2S8Wum6IN1Mr+YAKvMMEnEPKVmlWmE9EWTOZHjs9P6S98P0c632T1BCJzv1xNnhWfZOF9wM+zD/k2ZIQStmV85ufyxEqzNCJ+UO6jtgivnf9CP0kx4jSUqGv3FdFyWqL0CbCUkrvRXWHu5PbKsEP/pNTdkdsPNJ79fU9JZ4Azakpucsy8vdRBRgmgfxkLJ2z68NOI0LVbe5iWgDIqHRFbx20eS2mf5cxIswtzI3uAfngC648JbWmud6VdBEBY01TCu7454LL+Kj/NaTl0ZMT63dy82v3rvQvw=
-      on:
-        branch: release
-        condition: "$DEPLOY_TO_FORGE = yes"
+        on:
+          branch: release
+          condition: "$DEPLOY_TO_FORGE = yes"
