@@ -54,13 +54,13 @@ jobs:
 
 #    - stage: test
 #      env: BEAKER_set=redhat8-64 BEAKER_debug=1
-#      install: bundler install && bundler update
+#      install: bundle install && bundle update
 #      script: bundle exec rake beaker
 #      after_success: skip
 
     - stage: deploy
       env: PUPPET_VERSION="~> 5.0" DEPLOY_TO_FORGE=yes
-      install: bundler install && bundler update
+      install: bundle install && bundle update
       script: bundle exec rake test
       deploy:
         provider: puppetforge
