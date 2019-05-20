@@ -30,7 +30,7 @@ CLASSPARAMETER
     apply_manifest(manifest, catch_failures: true)
   end
 
-  it 'runs a second time without changes' do
+  it 'runs a second time without changes', :second_run do
     apply_manifest(manifest, catch_failures: true)
   end
 
