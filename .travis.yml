@@ -59,9 +59,9 @@ jobs:
 #      after_success: skip
 
     - stage: deploy
-      env: PUPPET_VERSION="~> 6.0" DEPLOY_TO_FORGE=yes
+      env: PUPPET_VERSION="~> 5.0" DEPLOY_TO_FORGE=yes
       install: bundler install && bundler update
-      script: skip
+      script: bundle exec rake test
       deploy:
         provider: puppetforge
         user: thbe
