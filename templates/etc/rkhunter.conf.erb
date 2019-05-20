@@ -1458,7 +1458,7 @@ WEB_CMD=<%= scope['rkhunter::web_cmd'] %>
 XINETD_ALLOWED_SVC=/etc/xinetd.d/tftp
 <% end -%>
 <% if scope['rkhunter::check_mk'] then -%>
-XINETD_ALLOWED_SVC=/etc/xinetd.d/check_mk
+XINETD_ALLOWED_SVC=<%= scope['rkhunter::check_mk_script'] %>
 <% end -%>
 <% if scope['rkhunter::oracle_xe'] then -%>
 ALLOWDEVFILE=/dev/shm/ora_XE_*

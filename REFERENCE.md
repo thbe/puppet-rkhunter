@@ -108,6 +108,14 @@ Ignore check errors forced by check_mk
 
 Default value: $rkhunter::params::check_mk
 
+##### `check_mk_script`
+
+Data type: `Any`
+
+Define the location of the check_mk script
+
+Default value: $rkhunter::params::check_mk_script
+
 ##### `oracle_xe`
 
 Data type: `Any`

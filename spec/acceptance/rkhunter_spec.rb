@@ -4,8 +4,8 @@
 require 'spec_helper_acceptance'
 
 describe 'rkhunter' do
-  let(:manifest) {
-<<-CLASSPARAMETER
+  let(:manifest) do
+    <<-CLASSPARAMETER
 class { 'rkhunter':
   root_email           => 'john.doe@example.com',
   warning_email        => 'john.doe@example.com',
@@ -24,22 +24,22 @@ class { 'rkhunter':
   disable_tests        => ['suspscan','hidden_procs','deleted_files','packet_cap_apps','apps'],
 }
 CLASSPARAMETER
-  }
-
-  it 'should run without errors' do
-    apply_manifest(manifest, :catch_failures => true)
   end
 
-  it 'should run a second time without changes' do
-    apply_manifest(manifest, :catch_failures => true)
+  it 'runs without errors' do
+    apply_manifest(manifest, catch_failures: true)
+  end
+
+  it 'runs a second time without changes', :second_run do
+    apply_manifest(manifest, catch_failures: true)
   end
 
   describe file('/etc/rkhunter.conf') do
-    it { should be_file }
-    it { should exist }
+    it { is_expected.to be_file }
+    it { is_expected.to exist }
   end
 
   describe package('rkhunter') do
-    it { should be_installed }
+    it { is_expected.to be_installed }
   end
 end

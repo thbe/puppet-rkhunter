@@ -1,6 +1,6 @@
-"# Changelog\n\nAll notable changes to this project will be documented in this file."
+# Change Log
 
-## [latest](https://github.com/thbe/puppet-rkhunter/tree/latest) (2019-05-19)
+## [latest](https://github.com/thbe/puppet-rkhunter/tree/latest) (05.20.2019)
 **Closed issues:**
 
 - Yum require : question [\#7](https://github.com/thbe/puppet-rkhunter/issues/7)
@@ -10,6 +10,8 @@
 
 **Merged pull requests:**
 
+- Fixed wrong indent [\#21](https://github.com/thbe/puppet-rkhunter/pull/21) ([thbe](https://github.com/thbe))
+- Fix automated module deployment [\#20](https://github.com/thbe/puppet-rkhunter/pull/20) ([thbe](https://github.com/thbe))
 - adding options [\#19](https://github.com/thbe/puppet-rkhunter/pull/19) ([dsoltero](https://github.com/dsoltero))
 - Adding ALLOW for an udev rule \(seen on Ubuntu\) [\#18](https://github.com/thbe/puppet-rkhunter/pull/18) ([mave007](https://github.com/mave007))
 - added lf to end of template file [\#17](https://github.com/thbe/puppet-rkhunter/pull/17) ([qs5779](https://github.com/qs5779))
