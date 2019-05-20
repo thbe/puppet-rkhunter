@@ -12,6 +12,7 @@
 # @param remote_syslog Set to true when remote syslog is enabled
 # @param tftp Ignore check errors forced by tftp
 # @param check_mk Ignore check errors forced by check_mk
+# @param check_mk_script Define the location of the check_mk script
 # @param oracle_xe Ignore check errors forced by Oracle XE
 # @param sap_igs Ignore check errors forced by SAP IGS
 # @param sap_icm Ignore check errors forced by SAP ICM
@@ -48,6 +49,7 @@ class rkhunter (
   $remote_syslog        = $rkhunter::params::remote_syslog,
   $tftp                 = $rkhunter::params::tftp,
   $check_mk             = $rkhunter::params::check_mk,
+  $check_mk_script      = $rkhunter::params::check_mk_script,
   $oracle_xe            = $rkhunter::params::oracle_xe,
   $sap_igs              = $rkhunter::params::sap_igs,
   $sap_icm              = $rkhunter::params::sap_icm,

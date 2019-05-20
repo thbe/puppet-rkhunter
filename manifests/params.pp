@@ -80,11 +80,6 @@ class rkhunter::params {
     }
     default  : {
       $linux                             = false
-
-      # Misc
-      $rkhunter_bin                      = '/usr/bin/rkhunter'
-      $log_file                          = '/var/log/rkhunter/rkhunter.log'
-      $package_manager                   = 'NONE'
     }
   }
 
@@ -95,6 +90,7 @@ class rkhunter::params {
   $remote_syslog                         = false
   $tftp                                  = false
   $check_mk                              = false
+  $check_mk_script                       = '/etc/xinetd.d/check_mk'
   $oracle_xe                             = false
   $sap_igs                               = false
   $sap_icm                               = false
