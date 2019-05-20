@@ -8,13 +8,61 @@
   "project_page": "https://github.com/thbe/puppet-rkhunter",
   "issues_url": "https://github.com/thbe/puppet-rkhunter/issues",
   "dependencies": [
+
   ],
   "operatingsystem_support": [
-    { "operatingsystem": "RedHat", "operatingsystemrelease": [ "6.0", "7.0", "8.0" ] },
-    { "operatingsystem": "OracleLinux", "operatingsystemrelease": [ "6.0", "7.0" ] },
-    { "operatingsystem": "CentOS", "operatingsystemrelease": [ "6.0", "7.0" ] },
-    { "operatingsystem": "Scientific", "operatingsystemrelease": [ "6.0", "7.0" ] },
-    { "operatingsystem": "Ubuntu", "operatingsystemrelease": [ "18.04", "18.10", "19.04" ] },
-    { "operatingsystem": "Debian", "operatingsystemrelease": [ "8.0", "9.0" ] }
-  ]
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "6.0",
+        "7.0",
+        "8.0"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "6.0",
+        "7.0"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "6.0",
+        "7.0"
+      ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "operatingsystemrelease": [
+        "6.0",
+        "7.0"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "18.04",
+        "18.10",
+        "19.04"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "8.0",
+        "9.0"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.10.0 < 7.0.0"
+    }
+  ],
+  "pdk-version": "1.10.0",
+  "template-url": "file:///opt/puppetlabs/pdk/share/cache/pdk-templates.git#1.10.0",
+  "template-ref": "1.10.0-0-gbba9ac3"
 }
