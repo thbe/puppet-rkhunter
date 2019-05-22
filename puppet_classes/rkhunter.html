@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Puppet Class: rkhunter
+  
+    &mdash; Documentation by YARD 0.9.19
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "puppet_classes::rkhunter";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../puppet_class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (r)</a> &raquo;
+    <span class='title'><span class='object_link'>Puppet Classes</span></span>
+     &raquo; 
+    <span class="title">rkhunter</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="puppet_class_list_link"
+        href="../puppet_class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Puppet Class: rkhunter</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd><span class='object_link'><a href="rkhunter_3A_3Aparams.html" title="puppet_classes::rkhunter::params (puppet_class)">rkhunter::params</a></span></dd>
+  </dl>
+  
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>
+      manifests/init.pp
+    </dd>
+  </dl>
+</div>
+
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>== Class: rkhunter</p>
+
+<p>This module manages rkhunter</p>
+
+<p>=== Parameters</p>
+
+<p>=== Variables</p>
+
+<p>=== Examples</p>
+
+<p>=== Authors</p>
+
+<p>Author Thomas Bendler <a
+href="mailto:project@bendler-net.de">project@bendler-net.de</a></p>
+
+<p>=== Copyright</p>
+
+<p>Copyright 2019 Thomas Bendler</p>
+
+  </div>
+</div>
+
+
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Declaring the class</p>
+</div></p>
+      
+      <pre class="example code"><code>class { &#39;::rkhunter&#39;:
+  tftp =&gt; true,
+  sshd_root =&gt; &#39;without-password&#39;
+}</code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>tftp</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$rkhunter::params::tftp</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>boolean, should tftp check be enabled or disabled</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>check_mk</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$rkhunter::params::check_mk</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>boolean, should check_mk check be enabled or disabled</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>root_email</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$rkhunter::params::root_email</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Set the root email address that get notifications if events occur</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>warning_email</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$rkhunter::params::warning_email</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Set the email address that gets notifications if warnings occur</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>enable_warning_email</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$rkhunter::params::enable_warning_email</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Set to true to send emails on warnings (default: false)</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>remote_syslog</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$rkhunter::params::remote_syslog</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Set to true when remote syslog is enabled</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>tftp</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>$rkhunter::params::tftp</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Ignore check errors forced by tftp</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>check_mk</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>$rkhunter::params::check_mk</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Ignore check errors forced by check_mk</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>check_mk_script</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$rkhunter::params::check_mk_script</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Define the location of the check_mk script</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>oracle_xe</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$rkhunter::params::oracle_xe</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Ignore check errors forced by Oracle XE</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>sap_igs</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$rkhunter::params::sap_igs</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Ignore check errors forced by SAP IGS</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>sap_icm</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$rkhunter::params::sap_icm</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Ignore check errors forced by SAP ICM</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>sap_db</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$rkhunter::params::sap_db</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Ignore check errors forced by SAPDB/MaxDB</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>sshd_root</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$rkhunter::params::sshd_root</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Surpress warning if root login is permit. Should be the same as
+PermitRootLogin in sshd_config</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ssh_prot_v1</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$rkhunter::params::ssh_prot_v1</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Define the minimum ssh protocol version, should be 2</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>web_cmd</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$rkhunter::params::web_cmd</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Command used to retrieve files from the internet (ie: while running with
+–update)</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>disable_tests</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$rkhunter::params::disable_tests</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>List of test that should not be performed</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>cron_daily_run</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$rkhunter::params::cron_daily_run</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Enable/Disable Cron daily runs</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>cron_db_update</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$rkhunter::params::cron_db_update</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Enable/Disable Cron database update runs</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><div class="method_details_list">
+  <table class="source_code">
+    <tr>
+      <td>
+        <pre class="lines">
+
+
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74</pre>
+      </td>
+      <td>
+        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 45</span>
+
+class rkhunter (
+  $root_email           = $rkhunter::params::root_email,
+  $warning_email        = $rkhunter::params::warning_email,
+  $enable_warning_email = $rkhunter::params::enable_warning_email,
+  $remote_syslog        = $rkhunter::params::remote_syslog,
+  $tftp                 = $rkhunter::params::tftp,
+  $check_mk             = $rkhunter::params::check_mk,
+  $check_mk_script      = $rkhunter::params::check_mk_script,
+  $oracle_xe            = $rkhunter::params::oracle_xe,
+  $sap_igs              = $rkhunter::params::sap_igs,
+  $sap_icm              = $rkhunter::params::sap_icm,
+  $sap_db               = $rkhunter::params::sap_db,
+  $sshd_root            = $rkhunter::params::sshd_root,
+  $ssh_prot_v1          = $rkhunter::params::ssh_prot_v1,
+  $web_cmd              = $rkhunter::params::web_cmd,
+  $disable_tests        = $rkhunter::params::disable_tests,
+  $cron_daily_run       = $rkhunter::params::cron_daily_run,
+  $cron_db_update       = $rkhunter::params::cron_db_update
+) inherits rkhunter::params {
+
+  # Start workflow
+  if $rkhunter::params::linux {
+    class{ &#39;::rkhunter::package&#39;: }
+    -&gt; class{ &#39;::rkhunter::config&#39;: }
+    -&gt; class{ &#39;::rkhunter::service&#39;: }
+    -&gt; Class[&#39;rkhunter&#39;]
+  } else {
+    warning(&#39;The current operating system is not supported!&#39;)
+  }
+}</pre>
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
+
+      <div id="footer">
+     Generated by <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>.
+</div>
+
+    </div>
+  </body>
+</html>
