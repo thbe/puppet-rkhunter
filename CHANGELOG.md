@@ -1,6 +1,10 @@
 # Change Log
 
-## [latest](https://github.com/thbe/puppet-rkhunter/tree/latest) (05.20.2019)
+## [latest](https://github.com/thbe/puppet-rkhunter/tree/latest) (05.22.2019)
+**Implemented enhancements:**
+
+- check-mk-agent check wrong path [\#14](https://github.com/thbe/puppet-rkhunter/issues/14)
+
 **Closed issues:**
 
 - Yum require : question [\#7](https://github.com/thbe/puppet-rkhunter/issues/7)

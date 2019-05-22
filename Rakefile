@@ -103,7 +103,8 @@ task :test => %i[
 
 desc "Create documentation"
 task :documentation => %i[
-  contributors
+  strings:generate
   reference
+  contributors
   changelog
 ]
