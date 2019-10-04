@@ -52,11 +52,11 @@ jobs:
       script: bundle exec rake beaker
       after_success: skip
 
-#    - stage: test
-#      env: BEAKER_set=redhat8-64 BEAKER_debug=1
-#      install: bundle install && bundle update
-#      script: bundle exec rake beaker
-#      after_success: skip
+    - stage: test
+      env: BEAKER_set=centos8-64 BEAKER_debug=1
+      install: bundle install && bundle update
+      script: bundle exec rake beaker
+      after_success: skip
 
     - stage: deploy
       env: PUPPET_VERSION="~> 5.0" DEPLOY_TO_FORGE=yes
