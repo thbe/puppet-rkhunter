@@ -1,6 +1,6 @@
 # Change Log
 
-## [latest](https://github.com/thbe/puppet-rkhunter/tree/latest) (05.22.2019)
+## [latest](https://github.com/thbe/puppet-rkhunter/tree/latest) (10.04.2019)
 **Implemented enhancements:**
 
 - check-mk-agent check wrong path [\#14](https://github.com/thbe/puppet-rkhunter/issues/14)
@@ -14,6 +14,7 @@
 
 **Merged pull requests:**
 
+- Adds rkhunter::whitelist define class [\#22](https://github.com/thbe/puppet-rkhunter/pull/22) ([jhon287](https://github.com/jhon287))
 - Fixed wrong indent [\#21](https://github.com/thbe/puppet-rkhunter/pull/21) ([thbe](https://github.com/thbe))
 - Fix automated module deployment [\#20](https://github.com/thbe/puppet-rkhunter/pull/20) ([thbe](https://github.com/thbe))
 - adding options [\#19](https://github.com/thbe/puppet-rkhunter/pull/19) ([dsoltero](https://github.com/dsoltero))
