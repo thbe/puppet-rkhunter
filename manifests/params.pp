@@ -96,7 +96,7 @@ class rkhunter::params {
   $sap_icm                               = false
   $sap_db                                = false
   $sshd_root                             = 'unset'
-  $ssh_prot_v1                           = 2
+  $ssh_prot_v1                           = 0
   $web_cmd                               = 'unset'
   $disable_tests                         = ['suspscan', 'hidden_procs', 'deleted_files', 'packet_cap_apps', 'apps']
   $cron_daily_run                        = 'y'
