@@ -1514,4 +1514,9 @@ ALLOWHIDDENDIR=/dev/.mdadm
 ALLOWHIDDENDIR=/dev/.udev
 ALLOWDEVFILE=/dev/shm/ShM.*
 <% end -%>
+<% if @osfamily == 'Archlinux' then -%>
+SCRIPTWHITELIST=/usr/bin/ldd
+SCRIPTWHITELIST=/usr/bin/egrep
+SCRIPTWHITELIST=/usr/bin/fgrep
+<% end -%>
 <% end -%>

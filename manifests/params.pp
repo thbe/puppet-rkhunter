@@ -78,6 +78,28 @@ class rkhunter::params {
       $log_file                          = '/var/log/rkhunter.log'
       $package_manager                   = 'NONE'
     }
+    'Archlinux' : {
+      $linux                             = true
+
+      # Package definition
+      $package_common                    = 'rkhunter'
+      $package_unhide                    = 'unhide'
+
+      # Config definition
+      $config_rkhunter_conf              = '/etc/rkhunter.conf'
+      $config_rkhunter_conf_template     = 'rkhunter/etc/rkhunter.conf.erb'
+      $config_rkhunter_sys_conf          = '/etc/default/rkhunter'
+      $config_rkhunter_sys_conf_template = 'rkhunter/sysconfig/rkhunter.erb'
+      $config_rkhunter_sys_conf_upd      = '/etc/default/rkhunter-propupdate'
+      $config_rkhunter_script_directory  = '/usr/lib/rkhunter/scripts'
+      $config_rkhunter_script            = '/usr/lib/rkhunter/scripts/checkWhiteList.sh'
+      $config_rkhunter_script_template   = 'rkhunter/scripts/checkWhiteList.sh.erb'
+
+      # Misc
+      $rkhunter_bin                      = '/usr/bin/rkhunter'
+      $log_file                          = '/var/log/rkhunter.log'
+      $package_manager                   = 'NONE'
+    }
     default  : {
       $linux                             = false
     }
