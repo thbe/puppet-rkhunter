@@ -56,6 +56,13 @@
         "8.0",
         "9.0"
       ]
+    },
+    {
+      "operatingsystem": "Archlinux",
+      "operatingsystemrelease": [
+        "5.2",
+        "5.3"
+      ]
     }
   ],
   "requirements": [

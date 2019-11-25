@@ -86,6 +86,17 @@ describe 'rkhunter', type: :class do
           content = catalogue.resource('file', '/etc/rkhunter.conf').send(:parameters)[:content]
           expect(content).to match('PKGMGR=NONE')
         end
+      when 'Archlinux'
+        it { is_expected.to contain_package('unhide').with_ensure('installed') }
+
+        it { is_expected.to contain_file('/usr/lib/rkhunter/scripts').with_ensure('directory') }
+        it { is_expected.to contain_file('/etc/default/rkhunter').with_ensure('file') }
+        it { is_expected.to contain_file('/usr/lib/rkhunter/scripts/checkWhiteList.sh').with_ensure('file') }
+
+        it 'generates valid content for rkhunter.conf - Archlinux part' do
+          content = catalogue.resource('file', '/etc/rkhunter.conf').send(:parameters)[:content]
+          expect(content).to match('PKGMGR=NONE')
+        end
       else
         it { is_expected.to contain_warning('The current operating system is not supported!') }
       end
