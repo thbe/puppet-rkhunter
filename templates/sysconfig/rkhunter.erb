@@ -5,12 +5,19 @@
 #
 # managed by Puppet, local changes will be overwritten
 #
+<% if @osfamily == 'Debian' || @osfamily == 'Archlinux' -%>
+# REPORT_EMAIL= <email address to send scan report>
+<% else -%>
 #    MAILTO= <email address to send scan report>
+<% end -%>
 # DIAG_SCAN= no  - perform  normal  report scan
 #            yes - perform detailed report scan
 #                  (includes application check)
-
+<% if @osfamily == 'Debian' || @osfamily == 'Archlinux' -%>
+REPORT_EMAIL=<%= scope['rkhunter::root_email'] -%>
+<% else -%>
 MAILTO=<%= scope['rkhunter::root_email'] %>
+<% end -%>
 DIAG_SCAN=no
 CRON_DAILY_RUN=<%= scope['rkhunter::cron_daily_run'] %>
 CRON_DB_UPDATE=<%= scope['rkhunter::cron_db_update'] %>
