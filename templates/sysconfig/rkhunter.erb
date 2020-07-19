@@ -14,7 +14,7 @@
 #            yes - perform detailed report scan
 #                  (includes application check)
 <% if @osfamily == 'Debian' || @osfamily == 'Archlinux' -%>
-REPORT_EMAIL=<%= scope['rkhunter::root_email'] -%>
+REPORT_EMAIL=<%= scope['rkhunter::root_email'] %>
 <% else -%>
 MAILTO=<%= scope['rkhunter::root_email'] %>
 <% end -%>
