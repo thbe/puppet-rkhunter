@@ -127,3 +127,4 @@ RPMS/x86_64/*.rpm
 SRPMS/*.src.rpm
 SOURCES/*.tar.gz
 tmp/
+graphify-out/
